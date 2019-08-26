@@ -1,0 +1,190 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <include
+        android:id="@+id/toolbar"
+        layout="@layout/toolbar" />
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="300dp"
+        android:layout_height="80dp"
+        android:layout_marginTop="100dp"
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="5dp"
+        android:layout_centerHorizontal="true">
+
+        <TextView
+            android:id="@+id/text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="30dp"
+            android:text="Notice"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:textColor="@android:color/black"/>
+
+        <TextView
+            android:id="@+id/text2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="30dp"
+            android:layout_marginTop="30dp"
+            android:text="Harap diisi dengan jelas!!!"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:textColor="@android:color/holo_purple"/>
+
+    </androidx.cardview.widget.CardView>
+
+
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:id="@+id/img1"
+            android:layout_width="150dp"
+            android:layout_height="50dp"
+            android:layout_marginTop="200dp"
+            android:layout_marginEnd="-53dp"
+            android:layout_marginRight="-53dp"
+            android:layout_toStartOf="@+id/txt1"
+            android:layout_toLeftOf="@id/txt1"
+            android:src="@drawable/ic_person_black_24dp" />
+
+        <TextView
+            android:id="@+id/txt1"
+            android:layout_width="wrap_content"
+            android:layout_height="50dp"
+            android:layout_marginLeft="60dp"
+            android:layout_marginTop="200dp"
+            android:text="Nama Lengkap"
+            android:textSize="25sp" />
+
+        <EditText
+            android:id="@+id/nama"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:layout_alignParentStart="true"
+            android:layout_marginStart="9dp"
+            android:layout_marginLeft="32dp"
+            android:layout_marginTop="230dp" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:id="@+id/img2"
+            android:layout_width="150dp"
+            android:layout_height="50dp"
+            android:layout_marginTop="300dp"
+            android:layout_marginEnd="-53dp"
+            android:layout_marginRight="-53dp"
+            android:layout_toStartOf="@+id/txt2"
+            android:layout_toLeftOf="@id/txt2"
+            android:src="@drawable/ic_date_range_black_24dp"/>
+
+        <TextView
+            android:id="@+id/txt2"
+            android:layout_width="wrap_content"
+            android:layout_height="50dp"
+            android:layout_marginLeft="60dp"
+            android:layout_marginTop="300dp"
+            android:text="Tanggal"
+            android:textSize="25sp" />
+
+        <EditText
+            android:id="@+id/tgl"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:layout_alignParentStart="true"
+            android:layout_marginStart="9dp"
+            android:layout_marginLeft="32dp"
+            android:layout_marginTop="330dp" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:id="@+id/img3"
+            android:layout_width="150dp"
+            android:layout_height="50dp"
+            android:layout_marginTop="400dp"
+            android:layout_marginEnd="-53dp"
+            android:layout_marginRight="-53dp"
+            android:layout_toStartOf="@+id/txt3"
+            android:layout_toLeftOf="@id/txt3"
+            android:src="@drawable/ic_star_black_24dp"/>
+
+        <TextView
+            android:id="@+id/txt3"
+            android:layout_width="wrap_content"
+            android:layout_height="50dp"
+            android:layout_marginLeft="60dp"
+            android:layout_marginTop="400dp"
+            android:text="Alasan"
+            android:textSize="25sp" />
+
+        <EditText
+            android:id="@+id/alasan"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:layout_alignParentStart="true"
+            android:layout_marginStart="9dp"
+            android:layout_marginLeft="32dp"
+            android:layout_marginTop="430dp" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:id="@+id/img4"
+            android:layout_width="150dp"
+            android:layout_height="50dp"
+            android:layout_marginTop="500dp"
+            android:layout_marginEnd="-53dp"
+            android:layout_marginRight="-53dp"
+            android:layout_toStartOf="@+id/txt4"
+            android:layout_toLeftOf="@id/txt4"
+            android:src="@drawable/ic_library_books_black_24dp"/>
+
+        <TextView
+            android:id="@+id/txt4"
+            android:layout_width="wrap_content"
+            android:layout_height="50dp"
+            android:layout_marginLeft="60dp"
+            android:layout_marginTop="500dp"
+            android:text="Pelajaran"
+            android:textSize="25sp" />
+
+        <EditText
+            android:id="@+id/pelajaran"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:layout_alignParentStart="true"
+            android:layout_marginStart="9dp"
+            android:layout_marginLeft="32dp"
+            android:layout_marginTop="530dp" />
+    </RelativeLayout>
+
+    <Button
+        android:id="@+id/btn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="610dp"
+        android:background="@drawable/btn_more"
+        android:text="Continue"
+        android:textSize="20sp"/>
+
+
+</RelativeLayout>
