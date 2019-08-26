@@ -1,5 +1,6 @@
 package com.example.edugate.Fragment;
 
+import android.content.Intent;
 import android.media.Image;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -16,6 +17,7 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
+import com.example.edugate.PanggilGuru;
 import com.example.edugate.R;
 import com.synnapps.carouselview.CarouselView;
 import com.synnapps.carouselview.ImageClickListener;
@@ -35,11 +37,15 @@ public class FragmentHome extends Fragment implements View.OnClickListener {
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.fragment_home, null);
+        LayoutInflater If = getActivity().getLayoutInflater() ;
+        View view = If.inflate(R.layout.fragment_home,container,false);
+
+        return view;
     }
 
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+
 //        UNTUK CAROUSEL
         CarouselView carouselView = (CarouselView) getView().findViewById(R.id.carousel);
         carouselView.setImageListener(new ImageListener() {
@@ -90,10 +96,10 @@ public class FragmentHome extends Fragment implements View.OnClickListener {
 //        ISI UNTUK PINDAH FRAGMENT NYA DISINI
         switch (view.getId()) {
             case R.id.panggilGuru:
-                fragment = new FragmentPanggilGuru();
+                Intent panggilguru = new Intent(getActivity().getApplication(), PanggilGuru.class);
+                startActivity(panggilguru);
                 break;
         }
-        loadFragment(fragment);
     }
 
 

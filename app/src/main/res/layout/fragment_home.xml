@@ -20,6 +20,7 @@
             app:layout_constraintTop_toTopOf="parent"
             tools:ignore="MissingConstraints">
             <TextView
+                android:id="@+id/whats"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginRight="200dp"

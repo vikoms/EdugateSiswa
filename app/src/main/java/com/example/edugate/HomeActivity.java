@@ -25,6 +25,9 @@ public class HomeActivity extends AppCompatActivity{
         setContentView(R.layout.activity_home);
         loadFragment(new FragmentHome());
 
+        TextView toolbar = (TextView) findViewById(R.id.textToolbar);
+        toolbar.setText("Home");
+
     }
 
     private void loadFragment(Fragment fragment) {
