@@ -18,6 +18,7 @@ import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
 import com.example.edugate.PanggilGuru;
+import com.example.edugate.Perpustakaan;
 import com.example.edugate.R;
 import com.synnapps.carouselview.CarouselView;
 import com.synnapps.carouselview.ImageClickListener;
@@ -99,6 +100,9 @@ public class FragmentHome extends Fragment implements View.OnClickListener {
                 Intent panggilguru = new Intent(getActivity().getApplication(), PanggilGuru.class);
                 startActivity(panggilguru);
                 break;
+            case R.id.perpustakaan:
+                Intent perpustakaan = new Intent(getActivity().getApplication(), Perpustakaan.class);
+                startActivity(perpustakaan);
         }
     }
 
