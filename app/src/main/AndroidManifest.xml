@@ -12,6 +12,9 @@
         <activity android:name=".beritaSekolah"></activity>
         <activity android:name=".Perpustakaan" />
         <activity android:name=".PanggilGuru" />
+        <activity android:name=".TugasRumahActivity"></activity>
+        <activity android:name=".Perpustakaan" />
+        <activity android:name=".PanggilGuruActivity" />
         <activity android:name=".HomeActivity" />
         <activity android:name=".LoginActivity" />
         <activity android:name=".MainActivity">

@@ -1,13 +1,11 @@
 package com.example.edugate.Fragment;
 
 import android.content.Intent;
-import android.media.Image;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -17,9 +15,11 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
-import com.example.edugate.PanggilGuru;
+import com.example.edugate.Models.TugasRumah;
+import com.example.edugate.PanggilGuruActivity;
 import com.example.edugate.Perpustakaan;
 import com.example.edugate.R;
+import com.example.edugate.TugasRumahActivity;
 import com.synnapps.carouselview.CarouselView;
 import com.synnapps.carouselview.ImageClickListener;
 import com.synnapps.carouselview.ImageListener;
@@ -97,12 +97,16 @@ public class FragmentHome extends Fragment implements View.OnClickListener {
 //        ISI UNTUK PINDAH FRAGMENT NYA DISINI
         switch (view.getId()) {
             case R.id.panggilGuru:
-                Intent panggilguru = new Intent(getActivity().getApplication(), PanggilGuru.class);
+                Intent panggilguru = new Intent(getActivity().getApplication(), PanggilGuruActivity.class);
                 startActivity(panggilguru);
                 break;
             case R.id.perpustakaan:
                 Intent perpustakaan = new Intent(getActivity().getApplication(), Perpustakaan.class);
                 startActivity(perpustakaan);
+            case R.id.daftarTugas:
+                Intent tugas_rumah = new Intent(getActivity().getApplication(), TugasRumahActivity.class);
+                startActivity(tugas_rumah);
+                break;
         }
     }
 
