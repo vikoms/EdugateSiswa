@@ -10,7 +10,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity android:name=".TugasRumahActivity"></activity>
-        <activity android:name=".Perpustakaan" />
+        <activity android:name=".PerpustakaanActivity" />
         <activity android:name=".PanggilGuruActivity" />
         <activity android:name=".HomeActivity" />
         <activity android:name=".LoginActivity" />

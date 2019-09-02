@@ -12,7 +12,7 @@ import com.example.edugate.Models.Book;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Perpustakaan extends AppCompatActivity {
+public class PerpustakaanActivity extends AppCompatActivity {
 
     List<Book> listBook;
 

@@ -15,9 +15,8 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
-import com.example.edugate.Models.TugasRumah;
 import com.example.edugate.PanggilGuruActivity;
-import com.example.edugate.Perpustakaan;
+import com.example.edugate.PerpustakaanActivity;
 import com.example.edugate.R;
 import com.example.edugate.TugasRumahActivity;
 import com.synnapps.carouselview.CarouselView;
@@ -101,8 +100,9 @@ public class FragmentHome extends Fragment implements View.OnClickListener {
                 startActivity(panggilguru);
                 break;
             case R.id.perpustakaan:
-                Intent perpustakaan = new Intent(getActivity().getApplication(), Perpustakaan.class);
+                Intent perpustakaan = new Intent(getActivity().getApplication(), PerpustakaanActivity.class);
                 startActivity(perpustakaan);
+                break;
             case R.id.daftarTugas:
                 Intent tugas_rumah = new Intent(getActivity().getApplication(), TugasRumahActivity.class);
                 startActivity(tugas_rumah);

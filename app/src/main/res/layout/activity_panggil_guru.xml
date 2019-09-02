@@ -35,7 +35,7 @@
         android:ems="10"
         android:layout_marginTop="20dp"
         android:inputType="textPersonName"
-        android:text="@android:string/search_go"
+        android:hint="Search"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.533"
         app:layout_constraintStart_toStartOf="parent"
