@@ -17,7 +17,7 @@
             android:layout_marginBottom="10dp"
             android:layout_width="wrap_content"
             android:layout_height="100dp"
-            android:src="@drawable/agama"
+            android:src="@drawable/indo"
             android:id="@+id/img_dialog_perpus"
             android:scaleType="fitCenter"
             android:layout_gravity="center"/>

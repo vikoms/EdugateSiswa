@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <include
+        android:id="@+id/toolbar"
+        layout="@layout/toolbar" />
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardView"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:layout_marginTop="40dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_centerHorizontal="true"
+        app:cardCornerRadius="5dp"
+        android:layout_below="@+id/toolbar">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:padding="10dp">
+        <TextView
+            android:layout_marginBottom="5dp"
+            android:id="@+id/text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Notice"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:textColor="@android:color/black"/>
+
+        <TextView
+            android:id="@+id/text2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Harap diisi dengan jelas!!!"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:textColor="@android:color/holo_purple"/>
+        </LinearLayout>
+
+    </androidx.cardview.widget.CardView>
+
+<LinearLayout
+    android:id="@+id/form"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:layout_below="@+id/cardView"
+    android:padding="20dp">
+
+        <EditText
+            android:layout_marginBottom="10dp"
+            android:drawableLeft="@drawable/ic_person_black_24dp"
+            android:hint="Nama"
+            android:id="@+id/piketNama"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:drawablePadding="20dp"/>
+
+        <EditText
+            android:layout_marginBottom="10dp"
+            android:drawableLeft="@drawable/ic_date_range_black_24dp"
+            android:id="@+id/tglPiket"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:hint="Waktu"
+            android:drawablePadding="20dp"/>
+
+        <EditText
+            android:layout_marginBottom="10dp"
+            android:drawableLeft="@drawable/ic_star_black_24dp"
+            android:id="@+id/alasanPiket"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:hint="Alasan"
+            android:drawablePadding="20dp"/>
+
+        <EditText
+            android:layout_marginBottom="10dp"
+            android:drawableLeft="@drawable/ic_library_books_black_24dp"
+            android:id="@+id/pelajaranPiket"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:hint="Pelajaran"
+            android:drawablePadding="20dp"/>
+</LinearLayout>
+
+    <Button
+        android:layout_centerHorizontal="true"
+        android:layout_below="@id/form"
+        android:id="@+id/btn"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:background="@drawable/btn_more"
+        android:text="Continue"
+        android:textColor="@android:color/white"
+        android:textSize="20sp"/>
+
+
+</RelativeLayout>

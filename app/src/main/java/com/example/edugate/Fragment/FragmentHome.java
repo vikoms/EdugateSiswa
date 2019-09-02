@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.Toast;
 
@@ -15,10 +16,12 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
+import com.example.edugate.IzinPiketActivity;
 import com.example.edugate.PanggilGuruActivity;
 import com.example.edugate.PerpustakaanActivity;
 import com.example.edugate.R;
 import com.example.edugate.TugasRumahActivity;
+import com.example.edugate.beritaSekolahActivity;
 import com.synnapps.carouselview.CarouselView;
 import com.synnapps.carouselview.ImageClickListener;
 import com.synnapps.carouselview.ImageListener;
@@ -33,7 +36,8 @@ public class FragmentHome extends Fragment implements View.OnClickListener {
             "Contoh 1", "Contoh 2"
     };
 
-    CardView panggil_guru, daftar_tugas, izin_piket, mPerpustakaan, help_desk;
+    CardView panggil_guru, daftar_tugas, izin_piket, mPerpustakaan, help_desk, beritaSekolah;
+    Button more;
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -86,6 +90,15 @@ public class FragmentHome extends Fragment implements View.OnClickListener {
         help_desk = getView().findViewById(R.id.helpDesk);
         help_desk.setOnClickListener(this);
 
+        beritaSekolah = getView().findViewById(R.id.beritaSekolah);
+        beritaSekolah.setOnClickListener(this);
+
+        more = getView().findViewById(R.id.btn_more_beritaSekolah);
+        more.setOnClickListener(this);
+
+
+
+
 
     }
 
@@ -107,6 +120,14 @@ public class FragmentHome extends Fragment implements View.OnClickListener {
                 Intent tugas_rumah = new Intent(getActivity().getApplication(), TugasRumahActivity.class);
                 startActivity(tugas_rumah);
                 break;
+            case R.id.beritaSekolah:
+                startActivity(new Intent(getActivity().getApplication(), beritaSekolahActivity.class));
+                break;
+            case R.id.btn_more_beritaSekolah:
+                startActivity(new Intent(getActivity().getApplication(), beritaSekolahActivity.class));
+                break;
+            case R.id.izinPiket:
+                startActivity(new Intent(getActivity().getApplication(), IzinPiketActivity.class));
         }
     }
 

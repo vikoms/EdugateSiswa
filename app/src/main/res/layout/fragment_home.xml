@@ -32,6 +32,7 @@
             <Button
                 android:layout_width="wrap_content"
                 android:layout_height="30dp"
+                android:id="@+id/btn_more_beritaSekolah"
                 android:background="@drawable/btn_more"
                 android:text="More"
                 android:textColor="@android:color/white" />

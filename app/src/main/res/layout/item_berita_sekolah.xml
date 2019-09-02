@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="350dp"
+    android:layout_width="match_parent"
     android:layout_height="102dp"
     android:id="@+id/item_beritaSekolah"
     xmlns:tools="http://schemas.android.com/tools"
@@ -11,8 +11,7 @@
     tools:ignore="MissingConstraints"
     tools:layout_editor_absoluteX="43dp"
     tools:layout_editor_absoluteY="35dp"
-    android:layout_marginLeft="20dp"
-    android:layout_marginTop="20dp">
+    android:layout_marginBottom="20dp">
 
     <LinearLayout
         android:layout_width="wrap_content"
@@ -33,22 +32,24 @@
            android:orientation="vertical">
 
            <TextView
-               android:layout_width="wrap_content"
-               android:layout_height="wrap_content"
-               android:text="SMKN 4 Juara Nasional Web"
+               android:id="@+id/title_beritaSekolah"
+               android:layout_width="match_parent"
+               android:layout_height="40dp"
+               android:layout_marginLeft="10dp"
                android:layout_marginTop="16dp"
-               android:layout_marginLeft="10dp"
-               android:textStyle="bold"
+               android:text="SMKN 4 Juara Nasional Web"
                android:textColor="#000"
-               android:textSize="15sp"/>
+               android:textSize="14sp"
+               android:textStyle="bold" />
+
            <TextView
-               android:layout_width="wrap_content"
-               android:layout_height="wrap_content"
-               android:text="SMKN 4 Bandung Juara Nasional Web nasional yang diselenggarakan di mana hayo."
-               android:layout_marginTop="5dp"
+               android:id="@+id/desc_beritaSekolah"
+               android:layout_width="match_parent"
+               android:layout_height="30dp"
                android:layout_marginLeft="10dp"
-               android:textSize="12sp"
-               />
+               android:layout_marginTop="5dp"
+               android:text="SMKN 4 Bandung Juara Nasional Web nasional yang diselenggarakan di mana hayo."
+               android:textSize="10sp" />
        </LinearLayout>
     </LinearLayout>
 
