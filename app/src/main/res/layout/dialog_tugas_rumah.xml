@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="350dp"
+    android:layout_height="210dp"
+    android:layout_gravity="center"
+    android:background="@android:color/white"
+    android:padding="10dp">
+    
+    <TextView
+        android:id="@+id/tv_dialog_judul_tugas"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Matematika"
+        android:textColor="@android:color/black"
+        android:textSize="30sp"
+        android:textStyle="bold"/>
+    
+    <TextView
+        android:id="@+id/tv_dialog_ket_tugas"
+        android:layout_marginTop="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="70dp"
+        android:text="Kerjakan soal di buku paket hal 15-20
+di kertas selembar"
+        android:textSize="18sp"/>
+
+    <LinearLayout
+        android:layout_marginBottom="20dp"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:weightSum="3"
+        android:orientation="horizontal"
+        android:layout_marginTop="20dp">
+        <TextView
+            android:id="@+id/tv_dialog_subjudul_tugas"
+            android:layout_width="98dp"
+            android:layout_height="wrap_content"
+            android:text="Bahasa Indonesia"
+            android:textColor="@android:color/black"
+            android:layout_weight="1"
+            android:textSize="16sp"/>
+        <TextView
+            android:layout_marginRight="20dp"
+            android:id="@+id/tv_dialog_deadline_tugas"
+            android:layout_width="98dp"
+            android:layout_height="40dp"
+            android:text="29 Desember 2019"
+            android:textColor="@android:color/black"
+            android:layout_weight="1"
+            android:textSize="16sp"/>
+
+        <Button
+            android:id="@+id/btn_ok_dialog_tugas"
+            android:layout_width="50dp"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="-20dp"
+            android:background="@color/colorPrimaryDark"
+            android:text="Ok"
+            android:textColor="@android:color/white" />
+    </LinearLayout>
+
+</LinearLayout>

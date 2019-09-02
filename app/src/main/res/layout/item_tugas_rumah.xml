@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="80dp"
+    android:id="@+id/tugas_rumah_cardview"
+    android:layout_marginBottom="10dp"
+    android:layout_gravity="center_horizontal">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/item_tugas_rumah"
+        android:orientation="vertical"
+        android:padding="8dp">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Matematika"
+            android:textSize="25sp"
+            android:textColor="@android:color/white"
+            android:id="@+id/judul_tugas"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="28 April 2020"
+            android:layout_marginTop="10dp"
+            android:textSize="13sp"
+            android:textColor="@android:color/white"
+            android:id="@+id/deadline_tugas"/>
+    </LinearLayout>
+
+</androidx.cardview.widget.CardView>
