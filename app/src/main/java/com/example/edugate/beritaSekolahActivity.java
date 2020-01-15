@@ -48,10 +48,10 @@ public class beritaSekolahActivity extends AppCompatActivity {
 
 
         listBerita = new ArrayList<>();
-        listBerita.add(new BeritaSekolah(R.drawable.foto_1,"Murid Juara 2 dan 3 Seleksi Nasional ASC 2017","Rizky Muhammad (XII-TKJ1) dan Rakha Fauzi Muhammad, mendapatkan Juara 2 dan 3 Seleksi Nasional ASC 2017 di Binus Anggrek, Jakarta, 2017"));
-        listBerita.add(new BeritaSekolah(R.drawable.foto_1,"Murid Juara 2 dan 3 Seleksi Nasional ASC 2017","Rizky Muhammad (XII-TKJ1) dan Rakha Fauzi Muhammad, mendapatkan Juara 2 dan 3 Seleksi Nasional ASC 2017 di Binus Anggrek, Jakarta, 2017"));
-        listBerita.add(new BeritaSekolah(R.drawable.foto_1,"Murid Juara 2 dan 3 Seleksi Nasional ASC 2017","Rizky Muhammad (XII-TKJ1) dan Rakha Fauzi Muhammad, mendapatkan Juara 2 dan 3 Seleksi Nasional ASC 2017 di Binus Anggrek, Jakarta, 2017"));
-        listBerita.add(new BeritaSekolah(R.drawable.foto_1,"Murid Juara 2 dan 3 Seleksi Nasional ASC 2017","Rizky Muhammad (XII-TKJ1) dan Rakha Fauzi Muhammad, mendapatkan Juara 2 dan 3 Seleksi Nasional ASC 2017 di Binus Anggrek, Jakarta, 2017"));
+        listBerita.add(new BeritaSekolah(R.drawable.foto_1,"Murid Juara 2 dan 3 Seleksi Nasional ASC 2017","Rizky Muhammad (XII-TKJ1) dan Rakha Fauzi Muhammad,"));
+        listBerita.add(new BeritaSekolah(R.drawable.foto_1,"Murid Juara 2 dan 3 Seleksi Nasional ASC 2017","Rizky Muhammad (XII-TKJ1) dan Rakha Fauzi Muhammad,"));
+        listBerita.add(new BeritaSekolah(R.drawable.foto_1,"Murid Juara 2 dan 3 Seleksi Nasional ASC 2017","Rizky Muhammad (XII-TKJ1) dan Rakha Fauzi Muhammad,"));
+        listBerita.add(new BeritaSekolah(R.drawable.foto_1,"Murid Juara 2 dan 3 Seleksi Nasional ASC 2017","Rizky Muhammad (XII-TKJ1) dan Rakha Fauzi Muhammad, "));
 
         mRecyclerView = (RecyclerView) findViewById(R.id.bsRecyclerView);
 

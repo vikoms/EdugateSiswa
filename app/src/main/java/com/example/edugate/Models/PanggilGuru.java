@@ -1,13 +1,17 @@
 package com.example.edugate.Models;
 
 public class PanggilGuru {
-    private String nama,pelajaran;
+    private String nama,Pelajaran;
     private int gambar;
 
-    public PanggilGuru(String nama, String pelajaran, int gambar) {
+    public PanggilGuru(String nama, String Pelajaran, int gambar) {
         this.nama = nama;
-        this.pelajaran = pelajaran;
+        this.Pelajaran = Pelajaran;
         this.gambar = gambar;
+    }
+
+
+    public PanggilGuru() {
     }
 
     public String getNama() {
@@ -19,11 +23,11 @@ public class PanggilGuru {
     }
 
     public String getPelajaran() {
-        return pelajaran;
+        return Pelajaran;
     }
 
-    public void setPelajaran(String pelajaran) {
-        this.pelajaran = pelajaran;
+    public void setPelajaran(String Pelajaran) {
+        this.Pelajaran = Pelajaran;
     }
 
     public int getGambar() {

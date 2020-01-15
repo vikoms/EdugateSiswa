@@ -1,35 +1,56 @@
 package com.example.edugate.Models;
 
 public class TugasRumah  {
-    private String judul_tugas, keterangan_tugas, deadline_tugas;
+    private String nama, desc, date, kelas,time;
 
-    public TugasRumah(String judul_tugas, String keterangan_tugas, String deadline_tugas) {
-        this.judul_tugas = judul_tugas;
-        this.keterangan_tugas = keterangan_tugas;
-        this.deadline_tugas = deadline_tugas;
+    public TugasRumah(String nama, String desc, String date, String kelas, String time) {
+        this.nama = nama;
+        this.desc = desc;
+        this.date = date;
+        this.kelas = kelas;
+        this.time = time;
     }
 
-    public String getJudul_tugas() {
-        return judul_tugas;
+    public TugasRumah() {
     }
 
-    public void setJudul_tugas(String judul_tugas) {
-        this.judul_tugas = judul_tugas;
+    public String getNama() {
+        return nama;
     }
 
-    public String getKeterangan_tugas() {
-        return keterangan_tugas;
+    public void setNama(String nama) {
+        this.nama = nama;
     }
 
-    public void setKeterangan_tugas(String keterangan_tugas) {
-        this.keterangan_tugas = keterangan_tugas;
+    public String getDesc() {
+        return desc;
     }
 
-    public String getDeadline_tugas() {
-        return deadline_tugas;
+    public void setDesc(String desc) {
+        this.desc = desc;
     }
 
-    public void setDeadline_tugas(String deadline_tugas) {
-        this.deadline_tugas = deadline_tugas;
+    public String getDate() {
+        return date;
+    }
+
+    public void setDate(String date) {
+        this.date = date;
+    }
+
+    public String getKelas() {
+        return kelas;
+    }
+
+    public void setKelas(String kelas) {
+        this.kelas = kelas;
+    }
+
+    public String getTime() {
+        return time;
+    }
+
+    public void setTime(String time) {
+        this.time = time;
     }
 }

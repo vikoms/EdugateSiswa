@@ -38,19 +38,19 @@
         app:layout_constraintVertical_bias="0.268">
 
         <EditText
-            android:id="@+id/editText"
+            android:id="@+id/txtNisLogin"
             android:layout_width="match_parent"
             android:layout_height="50dp"
             android:drawableStart="@drawable/ic_person_black_24dp"
             android:drawablePadding="16dp"
             android:ems="10"
             android:fontFamily="sans-serif"
-            android:hint="Usename / NIS"
+            android:hint="Email / NIS"
             android:inputType="textPersonName"
             android:paddingTop="10dp" />
 
         <EditText
-            android:id="@+id/editText2"
+            android:id="@+id/txtPassLogin"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="30dp"

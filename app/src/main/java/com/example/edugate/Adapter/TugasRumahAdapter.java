@@ -48,10 +48,10 @@ public class TugasRumahAdapter extends RecyclerView.Adapter<TugasRumahAdapter.Vi
                 TextView tv_deadline_tugas = (TextView) dialog_tugas.findViewById(R.id.tv_dialog_deadline_tugas);
                 Button btn_ok_tugas = (Button) dialog_tugas.findViewById(R.id.btn_ok_dialog_tugas);
 
-                tv_judul_tugas.setText(listTugas.get(vHolder.getAdapterPosition()).getJudul_tugas());
-                tv_ket_tugas.setText(listTugas.get(vHolder.getAdapterPosition()).getKeterangan_tugas());
-                tv_subjudul_tugas.setText(listTugas.get(vHolder.getAdapterPosition()).getJudul_tugas());
-                tv_deadline_tugas.setText(listTugas.get(vHolder.getAdapterPosition()).getDeadline_tugas());
+                tv_judul_tugas.setText(listTugas.get(vHolder.getAdapterPosition()).getNama());
+                tv_ket_tugas.setText(listTugas.get(vHolder.getAdapterPosition()).getDesc());
+                tv_subjudul_tugas.setText(listTugas.get(vHolder.getAdapterPosition()).getNama());
+                tv_deadline_tugas.setText(listTugas.get(vHolder.getAdapterPosition()).getDate());
 
                 dialog_tugas.show();
 
@@ -70,9 +70,10 @@ public class TugasRumahAdapter extends RecyclerView.Adapter<TugasRumahAdapter.Vi
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
+        TugasRumah list  = listTugas.get(position);
 
-        holder.tv_judul.setText(listTugas.get(position).getJudul_tugas());
-        holder.tv_deadline.setText(listTugas.get(position).getDeadline_tugas());
+        holder.tv_judul.setText(list.getNama());
+        holder.tv_deadline.setText(list.getDate());
 
 
     }

@@ -57,7 +57,7 @@ public class PanggilGuruAdapter extends RecyclerView.Adapter<PanggilGuruAdapter.
 
                 nama.setText(mList.get(vHolder.getAdapterPosition()).getNama());
                 pelajaran.setText(mList.get(vHolder.getAdapterPosition()).getPelajaran());
-                gambar_guru.setImageResource(mList.get(vHolder.getAdapterPosition()).getGambar());
+//                gambar_guru.setImageResource(mList.get(vHolder.getAdapterPosition()).getGambar());
 
                 myDialog.show();
 
@@ -87,7 +87,7 @@ public class PanggilGuruAdapter extends RecyclerView.Adapter<PanggilGuruAdapter.
 
         holder.nama.setText(mList.get(position).getNama());
         holder.pelajaran.setText(mList.get(position).getPelajaran());
-        holder.gambar_guru.setImageResource(mList.get(position).getGambar());
+//        holder.gambar_guru.setImageResource(mList.get(position).getGambar());
     }
 
     @Override
