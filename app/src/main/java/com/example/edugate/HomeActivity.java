@@ -45,7 +45,7 @@ public class HomeActivity extends AppCompatActivity{
         ref.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                String nama = dataSnapshot.child("nama").getValue(String.class);
+                String nama = dataSnapshot.child("name").getValue(String.class);
 //                toolbar.setText(nama);
                 Toast.makeText(HomeActivity.this, nama, Toast.LENGTH_SHORT).show();
             }
