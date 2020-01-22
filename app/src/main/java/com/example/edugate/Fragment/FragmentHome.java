@@ -15,8 +15,6 @@ import androidx.cardview.widget.CardView;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
-
-import com.example.edugate.HelpDeskActivity;
 import com.example.edugate.IzinPiketActivity;
 import com.example.edugate.PanggilGuruActivity;
 import com.example.edugate.PerpustakaanActivity;
@@ -133,7 +131,7 @@ public class FragmentHome extends Fragment implements View.OnClickListener {
                 startActivity(new Intent(getActivity().getApplication(), IzinPiketActivity.class));
                 break;
             case R.id.helpDesk:
-                startActivity(new Intent(getActivity().getApplication(), HelpDeskActivity.class));
+//                startActivity(new Intent(getActivity().getApplication(), HelpDeskActivity.class));
                 break;
 
         }
