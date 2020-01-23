@@ -12,6 +12,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.edugate.Fragment.FragmentHome;
+import com.google.android.material.navigation.NavigationView;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
@@ -23,12 +24,15 @@ import com.synnapps.carouselview.CarouselView;
 import com.synnapps.carouselview.ImageClickListener;
 import com.synnapps.carouselview.ImageListener;
 
+import org.w3c.dom.Text;
+
 public class HomeActivity extends AppCompatActivity{
 
     CardView panggil_guru,daftar_tugas,izin_piket,mPerpustakaan,help_desk;
     FirebaseAuth mAuth;
     FirebaseUser currentUser;
     DatabaseReference ref;
+    NavigationView navigationView;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -41,13 +45,14 @@ public class HomeActivity extends AppCompatActivity{
         final String userUid = currentUser.getUid();
 
         ref = FirebaseDatabase.getInstance().getReference("Users").child("Murid").child(userUid);
-
         ref.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 String nama = dataSnapshot.child("name").getValue(String.class);
-//                toolbar.setText(nama);
+                String email = currentUser.getEmail();
                 Toast.makeText(HomeActivity.this, nama, Toast.LENGTH_SHORT).show();
+
+                updateDrawer(nama,email);
             }
 
             @Override
@@ -55,6 +60,16 @@ public class HomeActivity extends AppCompatActivity{
 
             }
         });
+
+    }
+
+    private void updateDrawer(String nama , String email) {
+        navigationView = findViewById(R.id.nav_view);
+        View header = navigationView.getHeaderView(0);
+        TextView headerName = (TextView) header.findViewById(R.id.tv_user_name);
+        TextView headerEmail = (TextView) header.findViewById(R.id.tv_user_email);
+        headerName.setText(nama);
+        headerEmail.setText(email);
 
     }
 

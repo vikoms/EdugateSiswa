@@ -20,7 +20,8 @@ public class LoginActivity extends AppCompatActivity {
     EditText txtNis, txtPass;
     Button loginBtn;
     FirebaseAuth mAuth;
-    String pass,nis;
+    String pass, nis;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -31,28 +32,33 @@ public class LoginActivity extends AppCompatActivity {
         txtPass = findViewById(R.id.txtPassLogin);
         loginBtn = findViewById(R.id.btn_login);
         mAuth = FirebaseAuth.getInstance();
-        FirebaseUser user;
-        user = mAuth.getCurrentUser();
-        if(user != null) {
-            startActivity(new Intent(LoginActivity.this, HomeActivity.class));
-        }
+
+
+
         loginBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 nis = txtNis.getText().toString().trim();
                 pass = txtPass.getText().toString().trim();
 
-                if(nis.isEmpty() || pass.isEmpty()) {
+                if (nis.isEmpty() || pass.isEmpty()) {
                     Toast.makeText(LoginActivity.this, "Masukkan data dengan lengkap", Toast.LENGTH_SHORT).show();
                 } else {
                     login();
                 }
             }
         });
+
+        FirebaseUser user = mAuth.getCurrentUser();
+
+        if (user != null) {
+            Intent main = new Intent(LoginActivity.this, HomeActivity.class);
+            startActivity(main);
+        }
     }
 
     private void login() {
-        mAuth.signInWithEmailAndPassword(nis,pass).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+        mAuth.signInWithEmailAndPassword(nis, pass).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
             @Override
             public void onComplete(@NonNull Task<AuthResult> task) {
                 startActivity(new Intent(LoginActivity.this, HomeActivity.class));

@@ -6,8 +6,14 @@
     android:layout_height="180dp"
     android:background="#BE2EDD"
     tools:context=".DrawerHeaderActivity"
-    android:padding="30dp">
+    android:padding="30dp"
+    android:layout_marginTop="10dp"
+    android:orientation="vertical">
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
     <ImageView
         android:layout_marginRight="12dp"
         android:layout_width="80dp"
@@ -21,21 +27,32 @@
         android:orientation="vertical">
 
         <TextView
+            android:id="@+id/tv_user_name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="18sp"
+            android:text="Tester"
             android:textColor="#fff"
-            android:text="Tester"/>
+            android:textSize="18sp" />
 
         <TextView
-            android:layout_marginTop="4dp"
+            android:id="@+id/tv_user_email"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="14sp"
+            android:layout_marginTop="4dp"
+            android:text="test@gmail.com"
             android:textColor="#fff"
-            android:text="test@gmail.com"/>
+            android:textSize="14sp" />
 
     </LinearLayout>
+    </LinearLayout>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Jumlah Poin Anda : "
+        android:id="@+id/tv_point"
+        android:textColor="@android:color/white"
+        android:layout_marginTop="10dp"
+        android:textSize="28sp"/>
 
 
 
