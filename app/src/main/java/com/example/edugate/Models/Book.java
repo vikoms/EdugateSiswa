@@ -2,22 +2,29 @@ package com.example.edugate.Models;
 
 public class Book {
 
-    private String judul_buku,kelas,penerbit;
+    private String name;
+    private String kelas;
+    private String penerbit;
+    private String url;
     private int image;
 
-    public Book(String judul_buku, String kelas, String penerbit, int image) {
-        this.judul_buku = judul_buku;
+    public Book(String name, String kelas, String penerbit, String url, int image) {
+        this.name = name;
         this.kelas = kelas;
         this.penerbit = penerbit;
+        this.url = url;
         this.image = image;
     }
 
-    public String getJudul_buku() {
-        return judul_buku;
+    public Book() {
     }
 
-    public void setJudul_buku(String judul_buku) {
-        this.judul_buku = judul_buku;
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
     }
 
     public String getKelas() {
@@ -36,6 +43,14 @@ public class Book {
         this.penerbit = penerbit;
     }
 
+    public String getUrl() {
+        return url;
+    }
+
+    public void setUrl(String url) {
+        this.url = url;
+    }
+
     public int getImage() {
         return image;
     }
@@ -43,5 +58,4 @@ public class Book {
     public void setImage(int image) {
         this.image = image;
     }
-
 }

@@ -15,9 +15,9 @@
         <ImageView
             android:layout_marginTop="10dp"
             android:layout_marginBottom="10dp"
-            android:layout_width="200dp"
-            android:layout_height="100dp"
-            android:src="@drawable/ic_assignment_turned_in_black_24dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/undraw_mail_sent"
             android:id="@+id/img_dialog_perpus"
             android:scaleType="fitCenter"
             android:layout_gravity="center"/>
@@ -31,5 +31,4 @@
             android:textColor="@android:color/black"
             android:textSize="20sp"/>
     </LinearLayout>
-
 </LinearLayout>

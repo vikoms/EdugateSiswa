@@ -1,9 +1,12 @@
 package com.example.edugate.Adapter;
 
 import android.app.Dialog;
+import android.app.DownloadManager;
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
+import android.net.Uri;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -53,16 +56,20 @@ public class PerpustakaanAdapter extends RecyclerView.Adapter<PerpustakaanAdapte
                 Button btn_ya = (Button) dialogPerpus.findViewById(R.id.btn_ya_perpus);
                 Button btn_no = (Button) dialogPerpus.findViewById(R.id.btn_tidak_perpus);
 
-                tv.setText("Anda akan mendownload " + BookList.get(vHolder.getAdapterPosition()).getJudul_buku());
-                ivPerpus.setImageResource(BookList.get(vHolder.getAdapterPosition()).getImage());
+                tv.setText("Anda akan mendownload " + BookList.get(vHolder.getAdapterPosition()).getName());
+                ivPerpus.setImageResource(R.drawable.ipa1);
 
                 dialogPerpus.show();
 
                 btn_ya.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
-                        dialogPerpus.dismiss();
-                        Toast.makeText(mContext,"Buku sedang di download",Toast.LENGTH_SHORT).show();
+                        Book book = BookList.get(vHolder.getAdapterPosition());
+                        Intent intent = new Intent(Intent.ACTION_VIEW);
+                        intent.setData(Uri.parse(book.getUrl()));
+                        mContext.startActivity(intent);
+
+                        Toast.makeText(mContext, book.getUrl(), Toast.LENGTH_SHORT).show();
                     }
                 });
                 btn_no.setOnClickListener(new View.OnClickListener() {
@@ -83,10 +90,10 @@ public class PerpustakaanAdapter extends RecyclerView.Adapter<PerpustakaanAdapte
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
 
-        holder.judul.setText(BookList.get(position).getJudul_buku());
+        holder.judul.setText(BookList.get(position).getName());
         holder.kelas.setText(BookList.get(position).getKelas());
         holder.penerbit.setText(BookList.get(position).getPenerbit());
-        holder.gambar_buku.setImageResource(BookList.get(position).getImage());
+        holder.gambar_buku.setImageResource(R.drawable.ipa1);
 
     }
 

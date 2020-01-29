@@ -58,7 +58,6 @@ public class PanggilGuruActivity extends AppCompatActivity {
         mAuth = FirebaseAuth.getInstance();
         currentUser = mAuth.getCurrentUser();
 
-//        Toast.makeText(this, currentUser.getUid(), Toast.LENGTH_SHORT).show();
 
         mRecyclerView = (RecyclerView) findViewById(R.id.pgRecyclerView);
 

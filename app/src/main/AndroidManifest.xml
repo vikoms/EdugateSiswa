@@ -9,14 +9,17 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".beritaSekolahActivity"></activity>
-        <activity android:name=".TugasRumahActivity"></activity>
+        <activity android:name=".RegisterActivity"></activity>
+        <activity android:name=".HelpDeskActivity" />
+        <activity android:name=".DrawerHeaderActivity" />
+        <activity android:name=".DrawerActivity" />
+        <activity android:name=".beritaSekolahActivity" />
+        <activity android:name=".TugasRumahActivity" />
         <activity android:name=".PerpustakaanActivity" />
         <activity android:name=".PanggilGuruActivity" />
         <activity android:name=".HomeActivity" />
         <activity android:name=".LoginActivity" />
         <activity android:name=".IzinPiketActivity" />
-        <activity android:name=".HelpDeskActivity" />
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -25,5 +28,8 @@
             </intent-filter>
         </activity>
     </application>
+    <uses-permission android:name="android.permission.INTERNET" />
+
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
 
 </manifest>
