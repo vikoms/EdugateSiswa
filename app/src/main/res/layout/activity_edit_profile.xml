@@ -128,11 +128,16 @@
         </RelativeLayout>
 
         <Button
-            android:id="@+id/btnConfirm"
-            android:layout_width="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_below="@id/form"
+            android:id="@+id/btn"
+            android:layout_width="150dp"
             android:layout_height="wrap_content"
+            android:background="@drawable/btn_more"
             android:text="Simpan"
-            android:layout_gravity="center_horizontal"/>
+            android:textColor="@android:color/white"
+            android:layout_gravity="center_horizontal"
+            android:textSize="20sp"/>
     </LinearLayout>
 
 </RelativeLayout>
