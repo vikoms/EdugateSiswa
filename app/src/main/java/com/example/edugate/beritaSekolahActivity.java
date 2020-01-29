@@ -5,6 +5,7 @@ import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
@@ -45,8 +46,6 @@ public class beritaSekolahActivity extends AppCompatActivity {
             }
         });
 
-
-
         listBerita = new ArrayList<>();
         listBerita.add(new BeritaSekolah(R.drawable.foto_1,"Murid Juara 2 dan 3 Seleksi Nasional ASC 2017","Rizky Muhammad (XII-TKJ1) dan Rakha Fauzi Muhammad,"));
         listBerita.add(new BeritaSekolah(R.drawable.foto_1,"Murid Juara 2 dan 3 Seleksi Nasional ASC 2017","Rizky Muhammad (XII-TKJ1) dan Rakha Fauzi Muhammad,"));
@@ -60,6 +59,8 @@ public class beritaSekolahActivity extends AppCompatActivity {
 
         myAdapter = new BeritaSekolahAdapter(listBerita);
         mRecyclerView.setAdapter(myAdapter);
+
+
 
     }
 }

@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".detail_berita">
+
+
+    <include
+        android:id="@+id/toolbar_berita"
+        layout="@layout/toolbar_berita_sekolah" />
+
+    <ImageView
+        android:id="@+id/news_banner"
+        android:layout_width="match_parent"
+        android:layout_height="190dp"
+        android:layout_below="@+id/toolbar_berita"
+        android:background="#4d000000"
+        android:src="@drawable/foto_1"
+        />
+
+    <LinearLayout
+        android:layout_below="@+id/news_banner"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_margin="7dp"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/date_news"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Friday,12 April 2020"
+            android:layout_marginBottom="4dp"
+            />
+
+        <TextView
+            android:id="@+id/title_news"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
+            android:text="Testimoni"
+            android:textSize="24dp"
+            android:textStyle="bold"
+            android:textColor="#000"
+            />
+
+        <TextView
+            android:id="@+id/desc_news"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/descNews"
+            android:textColor="#000"
+            android:lineSpacingExtra="4dp"
+            />
+
+    </LinearLayout>
+
+</RelativeLayout>

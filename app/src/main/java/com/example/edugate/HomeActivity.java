@@ -55,7 +55,7 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
 
         ImageView iconSetting = findViewById(R.id.icon_setting);
 
-        iconSetting.setOnClickListener(new View.OnClickListener() {
+        iconSetting.setOnClickListener( new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 final DrawerLayout mDrawerLayout = findViewById(R.id.drawer_layout);
@@ -66,7 +66,6 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
                 }
             }
         });
-
 
         ref.addValueEventListener(new ValueEventListener() {
             @Override
@@ -113,6 +112,10 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
                 return true;
             case R.id.tk:
                 Toast.makeText(this, "Cekson", Toast.LENGTH_SHORT).show();
+                return true;
+            case R.id.btnprofile:
+                Intent profile = new Intent(this, ProfileActivity.class);
+                startActivity(profile);
                 return true;
         }
 
