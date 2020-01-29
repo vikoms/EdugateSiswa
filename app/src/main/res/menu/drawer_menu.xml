@@ -8,7 +8,7 @@
         <menu>
 
             <item
-                android:id="@+id/profile"
+                android:id="@+id/btnprofile"
                 android:icon="@drawable/ic_one"
                 android:title="PROFILE" />
             <item
