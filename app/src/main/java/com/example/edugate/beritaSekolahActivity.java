@@ -7,6 +7,7 @@ import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.os.PersistableBundle;
 import android.view.View;
@@ -56,8 +57,6 @@ public class beritaSekolahActivity extends AppCompatActivity {
             }
         });
 
-
-
         listBerita = new ArrayList<>();
 
         refBerita = FirebaseDatabase.getInstance().getReference("Berita");
@@ -91,6 +90,8 @@ public class beritaSekolahActivity extends AppCompatActivity {
 
             }
         });
+
+
 
     }
 }
