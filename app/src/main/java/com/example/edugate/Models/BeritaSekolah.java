@@ -1,36 +1,48 @@
 package com.example.edugate.Models;
 
 public class BeritaSekolah {
-    private  int image;
-    private String title,description;
 
-    public BeritaSekolah(int image, String title, String description) {
-        this.image = image;
-        this.title = title;
-        this.description = description;
+    private String judulBerita,isiBerita,gambarBerita,tanggalBerita;
+
+    public BeritaSekolah(String judulBerita, String isiBerita, String gambarBerita, String tanggalBerita) {
+        this.judulBerita = judulBerita;
+        this.isiBerita = isiBerita;
+        this.gambarBerita = gambarBerita;
+        this.tanggalBerita = tanggalBerita;
     }
 
-    public int getImage() {
-        return image;
+    public BeritaSekolah() {
     }
 
-    public void setImage(int image) {
-        this.image = image;
+    public String getJudulBerita() {
+        return judulBerita;
     }
 
-    public String getTitle() {
-        return title;
+    public void setJudulBerita(String judulBerita) {
+        this.judulBerita = judulBerita;
     }
 
-    public void setTitle(String title) {
-        this.title = title;
+    public String getIsiBerita() {
+        return isiBerita;
     }
 
-    public String getDescription() {
-        return description;
+    public void setIsiBerita(String isiBerita) {
+        this.isiBerita = isiBerita;
     }
 
-    public void setDescription(String description) {
-        this.description = description;
+    public String getGambarBerita() {
+        return gambarBerita;
+    }
+
+    public void setGambarBerita(String gambarBerita) {
+        this.gambarBerita = gambarBerita;
+    }
+
+    public String getTanggalBerita() {
+        return tanggalBerita;
+    }
+
+    public void setTanggalBerita(String tanggalBerita) {
+        this.tanggalBerita = tanggalBerita;
     }
 }

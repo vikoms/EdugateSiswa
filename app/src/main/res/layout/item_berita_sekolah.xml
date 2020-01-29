@@ -48,6 +48,7 @@
                android:layout_height="30dp"
                android:layout_marginLeft="10dp"
                android:layout_marginTop="5dp"
+               android:maxLines="2"
                android:text="SMKN 4 Bandung Juara Nasional Web nasional yang diselenggarakan di mana hayo."
                android:textSize="10sp" />
        </LinearLayout>

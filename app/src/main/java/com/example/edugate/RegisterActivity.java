@@ -21,6 +21,7 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.auth.UserProfileChangeRequest;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -149,6 +150,11 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
                     String kelasTugas = kelas.getKeyKelas();
                     Murid murid = new Murid(email,kelasTugas,name,nis,telp);
                     refMurid.child(uid).setValue(murid);
+//
+//                    FirebaseUser currentUser = mAuth.getCurrentUser();
+//                    UserProfileChangeRequest profileUpdates = new UserProfileChangeRequest.Builder()
+//                            .setDisplayName(name).build();
+//                    currentUser.updateProfile(profileUpdates);
 
                     Toast.makeText(RegisterActivity.this, "Register Berhasil", Toast.LENGTH_SHORT).show();
 

@@ -11,6 +11,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.Filter;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -22,6 +23,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.edugate.Models.Book;
 import com.example.edugate.R;
 
+import java.util.ArrayList;
 import java.util.List;
 
 
@@ -82,8 +84,6 @@ public class PerpustakaanAdapter extends RecyclerView.Adapter<PerpustakaanAdapte
         });
 
 
-
-
         return vHolder;
     }
 
@@ -103,8 +103,8 @@ public class PerpustakaanAdapter extends RecyclerView.Adapter<PerpustakaanAdapte
     }
 
 
-    public static class ViewHolder extends RecyclerView.ViewHolder{
-        private TextView judul,kelas,penerbit;
+    public static class ViewHolder extends RecyclerView.ViewHolder {
+        private TextView judul, kelas, penerbit;
         private ImageView gambar_buku;
         private CardView perpus;
 
@@ -119,5 +119,6 @@ public class PerpustakaanAdapter extends RecyclerView.Adapter<PerpustakaanAdapte
 
         }
     }
+
 
 }

@@ -11,6 +11,7 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.bumptech.glide.Glide;
 import com.example.edugate.Models.BeritaSekolah;
 import com.example.edugate.R;
 
@@ -41,9 +42,13 @@ public class BeritaSekolahAdapter extends RecyclerView.Adapter<BeritaSekolahAdap
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-        holder.image.setImageResource(mList.get(position).getImage());
-        holder.descBeritaSekolah.setText(mList.get(position).getDescription());
-        holder.titleBeritaSekolah.setText(mList.get(position).getTitle());
+        BeritaSekolah berita = mList.get(position);
+        holder.titleBeritaSekolah.setText(berita.getJudulBerita());
+        holder.descBeritaSekolah.setText(berita.getIsiBerita());
+
+        Glide.with(mContext)
+                .load(berita.getGambarBerita())
+                .into(holder.image);
 
     }
 
