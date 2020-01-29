@@ -16,6 +16,7 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
+import com.example.edugate.HelpDeskActivity;
 import com.example.edugate.IzinPiketActivity;
 import com.example.edugate.PanggilGuruActivity;
 import com.example.edugate.PerpustakaanActivity;
@@ -36,7 +37,7 @@ public class FragmentHome extends Fragment implements View.OnClickListener {
             "Contoh 1", "Contoh 2"
     };
 
-    CardView panggil_guru, daftar_tugas, izin_piket, mPerpustakaan, help_desk, beritaSekolah;
+    CardView panggil_guru, daftar_tugas, izin_piket, mPerpustakaan, help_desk, beritaSekolah,helpDesk;
     Button more;
     @Nullable
     @Override
@@ -96,6 +97,8 @@ public class FragmentHome extends Fragment implements View.OnClickListener {
         more = getView().findViewById(R.id.btn_more_beritaSekolah);
         more.setOnClickListener(this);
 
+        helpDesk = getView().findViewById(R.id.helpDesk);
+        helpDesk.setOnClickListener(this);
 
 
 
@@ -128,6 +131,11 @@ public class FragmentHome extends Fragment implements View.OnClickListener {
                 break;
             case R.id.izinPiket:
                 startActivity(new Intent(getActivity().getApplication(), IzinPiketActivity.class));
+                break;
+            case R.id.helpDesk:
+                startActivity(new Intent(getActivity().getApplication(), HelpDeskActivity.class));
+                break;
+
         }
     }
 
