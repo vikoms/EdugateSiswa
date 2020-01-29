@@ -4,7 +4,7 @@ public class Murid {
 
     private String email,kelas,name,nis,telp;
 
-    public Murid() {
+    public Murid(String email, Kelas kelas, String name, String nis, String telp) {
     }
 
     public Murid(String email, String kelas, String name, String nis, String telp) {
