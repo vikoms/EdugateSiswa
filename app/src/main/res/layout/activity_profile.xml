@@ -1,9 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
     android:orientation="vertical">
-
+<RelativeLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="20dp">
     <ImageView
         android:layout_margin="10dp"
         android:id="@+id/back"
@@ -11,19 +15,6 @@
         android:layout_height="40dp"
         android:src="@drawable/ic_arrow_back_black_24dp" />
 
-    <ImageView
-        android:id="@+id/edit"
-        android:layout_width="41dp"
-        android:layout_height="36dp"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentBottom="true"
-        android:layout_marginStart="355dp"
-        android:layout_marginTop="10dp"
-        android:layout_marginEnd="15dp"
-        android:layout_marginBottom="613dp"
-        android:src="@drawable/ic_edit" />
 
     <TextView
         android:id="@+id/txtProfile"
@@ -43,40 +34,44 @@
         android:src="@drawable/add_photo"
         android:layout_centerHorizontal="true"
         android:layout_below="@+id/txtProfile"/>
+
     <TextView
-        android:layout_marginTop="10dp"
         android:id="@+id/txtNama"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/photo_profile"
-        android:text="M Rifki Firmansyah"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="10dp"
         android:textAlignment="center"
-        android:textSize="20dp"
-        android:textColor="#000000"/>
+        android:textColor="#000000"
+        android:textSize="25dp"
+        android:textStyle="bold"
+        tools:text="M Rifki Firmansyah" />
 
     <TextView
-        android:id="@+id/txtNIP"
+        android:id="@+id/txtNis"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/txtNama"
-        android:text="1718191001"
+        tools:text="1718191001"
         android:textAlignment="center"
-        android:textSize="15sp"
+        android:textSize="17sp"
         android:textColor="#000000"/>
 
     <LinearLayout
         android:id="@+id/infoProfile"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/txtNIP"
+        android:layout_below="@id/txtNis"
         android:orientation="vertical"
-        android:padding="10dp">
+        android:padding="10dp"
+        android:layout_marginBottom="10dp">
 
         <androidx.cardview.widget.CardView
             android:id="@+id/phone"
             android:layout_width="match_parent"
             android:layout_height="50dp"
-            android:layout_below="@id/txtNIP"
+            android:layout_below="@id/txtNis"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="10dp">
 
@@ -92,7 +87,7 @@
                     android:layout_centerVertical="true"
                     android:drawableLeft="@drawable/ic_phone"
                     android:drawablePadding="20dp"
-                    android:text="+628962123458"
+                    tools:text="+628962123458"
                     android:textSize="17sp"
                     android:textColor="#000000"/>
 
@@ -119,7 +114,7 @@
                     android:layout_centerVertical="true"
                     android:drawableLeft="@drawable/ic_email_black_24dp"
                     android:drawablePadding="20dp"
-                    android:text="rifki@gmail.com"
+                    tools:text="rifki@gmail.com"
                     android:textSize="17sp"
                     android:textColor="#000000"/>
             </RelativeLayout>
@@ -139,13 +134,13 @@
                 android:paddingLeft="20dp">
 
                 <TextView
-                    android:id="@+id/txtIdGuru"
+                    android:id="@+id/txtNis_2"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_centerVertical="true"
                     android:drawableLeft="@drawable/ic_people"
                     android:drawablePadding="20dp"
-                    android:text="124091423"
+                    tools:text="124091423"
                     android:textSize="17sp"
                     android:textColor="#000000"/>
             </RelativeLayout>
@@ -165,13 +160,13 @@
                 android:paddingLeft="20dp">
 
                 <TextView
-                    android:id="@+id/txtAlamat"
+                    android:id="@+id/txtKelas"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_centerVertical="true"
                     android:drawableLeft="@drawable/ic_home"
                     android:drawablePadding="20dp"
-                    android:text="XII - RPL - 3"
+                    tools:text="XII - RPL - 3"
                     android:textSize="17sp"
                     android:textColor="#000000"/>
             </RelativeLayout>
@@ -189,5 +184,18 @@
         android:textColor="@android:color/white"
         android:textSize="20sp"/>
 
+    <ProgressBar
+        android:id="@+id/progressBar_profile"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/infoProfile"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginStart="182dp"
+        android:layout_marginTop="-2dp"
+        android:layout_marginEnd="181dp" />
 
 </RelativeLayout>
+
+
+</ScrollView>
