@@ -54,7 +54,7 @@ public class ProfileActivity extends AppCompatActivity {
                 murid.setName(nama);
                 murid.setTelp(telp);
                 murid.setEmail(email);
-
+                moveToEdit.putExtra(EditProfile.EXTRA_MURID,murid);
                 startActivity(moveToEdit);
             }
         });
