@@ -1,10 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
 
     <LinearLayout
         android:id="@+id/linearLayout4"
@@ -81,7 +85,7 @@
         <EditText
             android:layout_marginBottom="10dp"
             android:drawableLeft="@drawable/ic_date_range_black_24dp"
-            android:id="@+id/tglPiket"
+            android:id="@+id/jamPiket"
             android:layout_width="match_parent"
             android:layout_height="60dp"
             android:hint="Waktu"
@@ -96,26 +100,54 @@
             android:hint="Alasan"
             android:drawablePadding="20dp"/>
 
-        <EditText
-            android:layout_marginBottom="10dp"
-            android:drawableLeft="@drawable/ic_library_books_black_24dp"
-            android:id="@+id/pelajaranPiket"
-            android:layout_width="match_parent"
-            android:layout_height="60dp"
-            android:hint="Pelajaran"
-            android:drawablePadding="20dp"/>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <Button
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:background="@drawable/btn_more"
+            android:text="Pilih Guru"
+            android:id="@+id/btn_pilih_guru"
+            android:textColor="@android:color/white"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="20sp"
+            tools:text="Nama Guru"
+            android:id="@+id/txt_nama_guru"
+            android:layout_gravity="center_vertical"
+            android:layout_marginLeft="10dp"/>
+    </LinearLayout>
 </LinearLayout>
 
     <Button
         android:layout_centerHorizontal="true"
         android:layout_below="@id/form"
-        android:id="@+id/btn"
+        android:id="@+id/btn_konfirmasi"
         android:layout_width="150dp"
         android:layout_height="wrap_content"
         android:background="@drawable/btn_more"
         android:text="Continue"
+        android:layout_marginTop="20dp"
         android:textColor="@android:color/white"
         android:textSize="20sp"/>
 
+        <ProgressBar
+            android:id="@+id/progressBarIzin"
+            style="?android:attr/progressBarStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/form"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentEnd="true"
+            android:layout_marginStart="185dp"
+            android:layout_marginTop="23dp"
+            android:layout_marginEnd="178dp" />
 
-</RelativeLayout>
+    </RelativeLayout>
+
+
+</ScrollView>
