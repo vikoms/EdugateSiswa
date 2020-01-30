@@ -1,5 +1,7 @@
 package com.example.edugate;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -7,6 +9,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.PersistableBundle;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.Toast;
@@ -15,6 +18,12 @@ import com.example.edugate.Adapter.BeritaSekolahAdapter;
 import com.example.edugate.Adapter.PanggilGuruAdapter;
 import com.example.edugate.Models.BeritaSekolah;
 import com.example.edugate.Models.PanggilGuru;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
+import com.google.firebase.storage.StorageReference;
 import com.synnapps.carouselview.CarouselView;
 import com.synnapps.carouselview.ImageClickListener;
 import com.synnapps.carouselview.ImageListener;
@@ -29,6 +38,8 @@ public class beritaSekolahActivity extends AppCompatActivity {
     private List<BeritaSekolah> listBerita;
     private BeritaSekolahAdapter myAdapter;
 
+    DatabaseReference refBerita;
+    StorageReference storageRef;
     private int[] mImage = new int[]{
             R.drawable.foto_1, R.drawable.foto_2
     };
@@ -47,18 +58,38 @@ public class beritaSekolahActivity extends AppCompatActivity {
         });
 
         listBerita = new ArrayList<>();
-        listBerita.add(new BeritaSekolah(R.drawable.foto_1,"Murid Juara 2 dan 3 Seleksi Nasional ASC 2017","Rizky Muhammad (XII-TKJ1) dan Rakha Fauzi Muhammad,"));
-        listBerita.add(new BeritaSekolah(R.drawable.foto_1,"Murid Juara 2 dan 3 Seleksi Nasional ASC 2017","Rizky Muhammad (XII-TKJ1) dan Rakha Fauzi Muhammad,"));
-        listBerita.add(new BeritaSekolah(R.drawable.foto_1,"Murid Juara 2 dan 3 Seleksi Nasional ASC 2017","Rizky Muhammad (XII-TKJ1) dan Rakha Fauzi Muhammad,"));
-        listBerita.add(new BeritaSekolah(R.drawable.foto_1,"Murid Juara 2 dan 3 Seleksi Nasional ASC 2017","Rizky Muhammad (XII-TKJ1) dan Rakha Fauzi Muhammad, "));
+
+        refBerita = FirebaseDatabase.getInstance().getReference("Berita");
 
         mRecyclerView = (RecyclerView) findViewById(R.id.bsRecyclerView);
 
         mLayoutManager = new LinearLayoutManager(this);
         mRecyclerView.setLayoutManager(mLayoutManager);
 
-        myAdapter = new BeritaSekolahAdapter(listBerita);
-        mRecyclerView.setAdapter(myAdapter);
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+
+        refBerita.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                listBerita.clear();
+                for (DataSnapshot dataBerita : dataSnapshot.getChildren()) {
+                    BeritaSekolah berita = dataBerita.getValue(BeritaSekolah.class);
+                    listBerita.add(berita);
+                }
+                myAdapter = new BeritaSekolahAdapter(listBerita);
+                mRecyclerView.setAdapter(myAdapter);
+                myAdapter.notifyDataSetChanged();
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+            }
+        });
 
 
 

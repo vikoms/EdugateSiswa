@@ -3,15 +3,25 @@ package com.example.edugate.Models;
 public class PanggilGuru {
     private String nama,Pelajaran;
     private int gambar;
+    private String uid;
 
-    public PanggilGuru(String nama, String Pelajaran, int gambar) {
+    public PanggilGuru(String nama, String Pelajaran, int gambar,String uid) {
         this.nama = nama;
         this.Pelajaran = Pelajaran;
         this.gambar = gambar;
+        this.uid = uid;
     }
 
 
     public PanggilGuru() {
+    }
+
+    public String getUid() {
+        return uid;
+    }
+
+    public void setUid(String uid) {
+        this.uid = uid;
     }
 
     public String getNama() {

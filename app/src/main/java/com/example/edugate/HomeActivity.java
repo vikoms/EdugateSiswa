@@ -17,6 +17,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.edugate.Fragment.FragmentHome;
+import com.example.edugate.Models.Murid;
 import com.google.android.material.navigation.NavigationView;
 import com.google.android.material.snackbar.Snackbar;
 import com.google.firebase.auth.FirebaseAuth;
@@ -39,6 +40,7 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
     FirebaseUser currentUser;
     DatabaseReference ref;
     NavigationView navigationView;
+    String nama,email;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -70,11 +72,10 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
         ref.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                String nama = dataSnapshot.child("name").getValue(String.class);
-                String email = currentUser.getEmail();
-                Toast.makeText(HomeActivity.this, nama, Toast.LENGTH_SHORT).show();
+                 nama = dataSnapshot.child("name").getValue(String.class);
+                 email = currentUser.getEmail();
+                 updateDrawer();
 
-                updateDrawer(nama, email);
             }
 
             @Override
@@ -85,7 +86,7 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
 
     }
 
-    private void updateDrawer(String nama, String email) {
+    private void updateDrawer() {
         navigationView = findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
         View header = navigationView.getHeaderView(0);
@@ -113,7 +114,7 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
             case R.id.tk:
                 Toast.makeText(this, "Cekson", Toast.LENGTH_SHORT).show();
                 return true;
-            case R.id.btnprofile:
+            case R.id.btnProfile:
                 Intent profile = new Intent(this, ProfileActivity.class);
                 startActivity(profile);
                 return true;

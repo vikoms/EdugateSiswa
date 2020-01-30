@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
+<ScrollView
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
@@ -7,6 +7,9 @@
     android:layout_height="match_parent"
     tools:context=".detail_berita">
 
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
 
     <include
         android:id="@+id/toolbar_berita"
@@ -42,7 +45,7 @@
             android:layout_height="wrap_content"
             android:layout_marginBottom="10dp"
             android:text="Testimoni"
-            android:textSize="24dp"
+            android:textSize="24sp"
             android:textStyle="bold"
             android:textColor="#000"
             />
@@ -56,6 +59,7 @@
             android:lineSpacingExtra="4dp"
             />
 
-    </LinearLayout>
+        </LinearLayout>
+    </RelativeLayout>
 
-</RelativeLayout>
+</ScrollView>

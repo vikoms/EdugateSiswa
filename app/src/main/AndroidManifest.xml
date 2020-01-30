@@ -13,7 +13,6 @@
         <activity android:name=".RegisterActivity" />
         <activity android:name=".EditProfile"></activity>
         <activity android:name=".detail_berita"></activity>
-        <activity android:name=".RegisterActivity" />
         <activity android:name=".HelpDeskActivity" />
         <activity android:name=".DrawerHeaderActivity" />
         <activity android:name=".DrawerActivity" />
