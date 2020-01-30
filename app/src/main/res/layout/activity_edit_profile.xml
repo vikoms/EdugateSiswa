@@ -92,21 +92,6 @@
                 android:paddingBottom="10dp" />
         </RelativeLayout>
 
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_marginBottom="5dp">
-
-            <EditText
-                android:id="@+id/edtKota"
-                android:layout_width="match_parent"
-                android:layout_height="60dp"
-                android:drawableLeft="@drawable/ic_home_black_24dp"
-                android:drawableRight="@drawable/ic_create_black_24dp"
-                android:drawablePadding="20dp"
-                android:hint="Masukkan Kota"
-                android:paddingBottom="10dp" />
-        </RelativeLayout>
 
 
         <Button
