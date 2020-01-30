@@ -36,8 +36,9 @@
             android:layout_width="50dp"
             android:layout_height="50dp"
             android:id="@+id/btn_ok"
-            android:background="@color/colorPrimaryDark"
+            android:background="@drawable/custom_button"
             android:text="Ok"
+            android:layout_marginBottom="18dp"
             android:textColor="@android:color/white"/>
     </LinearLayout>
 </LinearLayout>
