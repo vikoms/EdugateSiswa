@@ -113,7 +113,7 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
             case R.id.tk:
                 Toast.makeText(this, "Cekson", Toast.LENGTH_SHORT).show();
                 return true;
-            case R.id.btnprofile:
+            case R.id.btnProfile:
                 Intent profile = new Intent(this, ProfileActivity.class);
                 startActivity(profile);
                 return true;

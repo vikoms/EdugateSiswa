@@ -1,6 +1,9 @@
 package com.example.edugate.Models;
 
-public class BeritaSekolah {
+import android.os.Parcel;
+import android.os.Parcelable;
+
+public class BeritaSekolah implements Parcelable {
 
     private String judulBerita,isiBerita,gambarBerita,tanggalBerita;
 
@@ -13,6 +16,25 @@ public class BeritaSekolah {
 
     public BeritaSekolah() {
     }
+
+    protected BeritaSekolah(Parcel in) {
+        judulBerita = in.readString();
+        isiBerita = in.readString();
+        gambarBerita = in.readString();
+        tanggalBerita = in.readString();
+    }
+
+    public static final Creator<BeritaSekolah> CREATOR = new Creator<BeritaSekolah>() {
+        @Override
+        public BeritaSekolah createFromParcel(Parcel in) {
+            return new BeritaSekolah(in);
+        }
+
+        @Override
+        public BeritaSekolah[] newArray(int size) {
+            return new BeritaSekolah[size];
+        }
+    };
 
     public String getJudulBerita() {
         return judulBerita;
@@ -44,5 +66,18 @@ public class BeritaSekolah {
 
     public void setTanggalBerita(String tanggalBerita) {
         this.tanggalBerita = tanggalBerita;
+    }
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(Parcel parcel, int i) {
+        parcel.writeString(judulBerita);
+        parcel.writeString(isiBerita);
+        parcel.writeString(gambarBerita);
+        parcel.writeString(tanggalBerita);
     }
 }
