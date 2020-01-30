@@ -63,7 +63,6 @@ public class TugasRumahActivity extends AppCompatActivity {
                         mList.clear();
                         for (DataSnapshot  tugasSnap: dataSnapshot.getChildren()) {
                             TugasRumah tugas = tugasSnap.getValue(TugasRumah.class);
-
                             mList.add(tugas);
                         }
                         TugasRumahAdapter adapter = new TugasRumahAdapter(mList);
