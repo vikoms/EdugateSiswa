@@ -8,367 +8,354 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:padding="15dp">
 
-        <LinearLayout
-            android:id="@+id/whatsnew"
+    <TextView
+        android:id="@+id/whats"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Whats New?"
+        android:textColor="@android:color/black"
+        android:textSize="17sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.025" />
+
+    <Button
+        android:id="@+id/btn_more_beritaSekolah"
+        android:layout_width="wrap_content"
+        android:layout_height="30dp"
+        android:background="@drawable/btn_more"
+        android:text="More"
+        android:textColor="@android:color/white"
+        app:layout_constraintBottom_toBottomOf="@+id/whats"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toEndOf="@+id/whats"
+        app:layout_constraintTop_toTopOf="@+id/whats"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <ImageView
+        android:id="@+id/image_smkn4"
+        android:layout_width="375dp"
+        android:layout_height="186dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.445"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/whats"
+        app:layout_constraintVertical_bias="0.046"
+        tools:src="@drawable/smkn4" />
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="8dp"
+        android:orientation="vertical"
+        android:padding="13dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/image_smkn4"
+        app:layout_constraintVertical_bias="0.0">
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/panggilGuru"
+            android:layout_width="match_parent"
+            android:layout_height="120dp"
             android:padding="10dp"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:orientation="horizontal"
-            app:layout_constraintTop_toTopOf="parent"
-            tools:ignore="MissingConstraints">
-            <TextView
-                android:id="@+id/whats"
-                android:layout_width="wrap_content"
+            app:cardCornerRadius="10dp"
+            app:cardElevation="5dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginRight="200dp"
-                android:text="Whats New?"
-                android:textColor="@android:color/black"
-                android:textSize="17sp"
-                android:textStyle="bold" />
-            <Button
-                android:layout_width="wrap_content"
-                android:layout_height="30dp"
-                android:id="@+id/btn_more_beritaSekolah"
-                android:background="@drawable/btn_more"
-                android:text="More"
-                android:textColor="@android:color/white" />
-        </LinearLayout>
+                android:orientation="horizontal">
 
-        <com.synnapps.carouselview.CarouselView
-            android:id="@+id/carousel"
+                <ImageView
+                    android:layout_marginLeft="5dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="15dp"
+                    android:layout_marginBottom="15dp"
+                    android:src="@drawable/undraw_teacher_35j2" />
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginTop="15dp"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Panggil Guru"
+                        android:textColor="@android:color/black"
+                        android:textSize="20sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Fitur yang di gunakan saat kesusahan saat memanggil guru"
+                        android:textColor="#C1C1C1"
+                        android:textSize="15sp" />
+                </LinearLayout>
+
+            </LinearLayout>
+
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/daftarTugas"
             android:layout_width="match_parent"
-            android:layout_height="200dp"
+            android:layout_height="120dp"
             android:layout_marginTop="20dp"
-            app:fillColor="#ffffffff"
-            app:layout_constraintTop_toBottomOf="@+id/whatsnew"
-            app:pageColor="#00000000"
-            app:radius="6dp"
-            app:slideInterval="3000"
-            app:strokeColor="#ff777777"
-            app:strokeWidth="1dp"
-            tools:layout_editor_absoluteX="0dp">
+            android:padding="10dp"
+            app:cardCornerRadius="10dp"
+            app:cardElevation="5dp">
 
-        </com.synnapps.carouselview.CarouselView>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
 
-        <View
-            android:id="@+id/view3"
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="15dp"
+                    android:layout_marginBottom="15dp"
+                    android:src="@drawable/undraw_process_e90d"
+                    android:layout_marginLeft="5dp"/>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginTop="15dp"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Daftar Tugas"
+                        android:textColor="@android:color/black"
+                        android:textSize="20sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Fitur yang berguna untuk melihat daftar tugas"
+                        android:textColor="#C1C1C1"
+                        android:textSize="15sp" />
+                </LinearLayout>
+
+            </LinearLayout>
+
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/izinPiket"
             android:layout_width="match_parent"
-            android:layout_height="200dp"
-            android:background="#4d000000"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/carousel" />
+            android:layout_height="120dp"
+            android:layout_marginTop="20dp"
+            android:padding="10dp"
+            app:cardCornerRadius="10dp"
+            app:cardElevation="5dp">
 
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
-            android:layout_marginTop="10dp"
-            android:layout_marginEnd="8dp"
-            android:orientation="vertical"
-            android:padding="13dp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/view3"
-            app:layout_constraintVertical_bias="0.0">
-
-            <androidx.cardview.widget.CardView
-                android:id="@+id/panggilGuru"
+            <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="120dp"
-                android:padding="10dp"
-                app:cardCornerRadius="10dp"
-                app:cardElevation="5dp">
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="15dp"
+                    android:layout_marginBottom="15dp"
+                    android:src="@drawable/undraw_files1_9ool"
+                    android:layout_marginLeft="5dp"/>
 
                 <LinearLayout
-                    android:layout_width="match_parent"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:orientation="horizontal">
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginTop="15dp"
+                    android:orientation="vertical">
 
-                    <ImageView
-                        android:layout_marginLeft="5dp"
+                    <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="15dp"
-                        android:layout_marginBottom="15dp"
-                        android:src="@drawable/undraw_teacher_35j2" />
+                        android:text="Izin Piket"
+                        android:textColor="@android:color/black"
+                        android:textSize="20sp"
+                        android:textStyle="bold" />
 
-                    <LinearLayout
+                    <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginLeft="20dp"
-                        android:layout_marginTop="15dp"
-                        android:orientation="vertical">
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="Panggil Guru"
-                            android:textColor="@android:color/black"
-                            android:textSize="20sp"
-                            android:textStyle="bold" />
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="Fitur yang di gunakan saat kesusahan saat memanggil guru"
-                            android:textColor="#C1C1C1"
-                            android:textSize="15sp" />
-                    </LinearLayout>
-
+                        android:text="Fitur untuk memudahkan untuk meminta izin ke penjaga piket"
+                        android:textColor="#C1C1C1"
+                        android:textSize="15sp" />
                 </LinearLayout>
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
 
-            </androidx.cardview.widget.CardView>
+        <androidx.cardview.widget.CardView
+            android:id="@+id/perpustakaan"
+            android:layout_width="match_parent"
+            android:layout_height="120dp"
+            android:layout_marginTop="20dp"
+            android:padding="10dp"
+            app:cardCornerRadius="10dp"
+            app:cardElevation="5dp">
 
-            <androidx.cardview.widget.CardView
-                android:id="@+id/daftarTugas"
+            <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="120dp"
-                android:layout_marginTop="20dp"
-                android:padding="10dp"
-                app:cardCornerRadius="10dp"
-                app:cardElevation="5dp">
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:layout_marginLeft="5dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="15dp"
+                    android:layout_marginBottom="15dp"
+                    android:src="@drawable/undraw_bibliophile_hwqc" />
 
                 <LinearLayout
-                    android:layout_width="match_parent"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:orientation="horizontal">
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginTop="15dp"
+                    android:orientation="vertical">
 
-                    <ImageView
+                    <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="15dp"
-                        android:layout_marginBottom="15dp"
-                        android:src="@drawable/undraw_process_e90d"
-                        android:layout_marginLeft="5dp"/>
+                        android:text="Perpustakaan"
+                        android:textColor="@android:color/black"
+                        android:textSize="20sp"
+                        android:textStyle="bold" />
 
-                    <LinearLayout
+                    <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginLeft="20dp"
-                        android:layout_marginTop="15dp"
-                        android:orientation="vertical">
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="Daftar Tugas"
-                            android:textColor="@android:color/black"
-                            android:textSize="20sp"
-                            android:textStyle="bold" />
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="Fitur yang berguna untuk melihat daftar tugas"
-                            android:textColor="#C1C1C1"
-                            android:textSize="15sp" />
-                    </LinearLayout>
-
+                        android:text="Fitur yang berguna untuk menemukan buku berformat PDF"
+                        android:textColor="#C1C1C1"
+                        android:textSize="15sp" />
                 </LinearLayout>
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
 
-            </androidx.cardview.widget.CardView>
 
-            <androidx.cardview.widget.CardView
-                android:id="@+id/izinPiket"
+        <androidx.cardview.widget.CardView
+            android:id="@+id/beritaSekolah"
+            android:layout_width="match_parent"
+            android:layout_height="120dp"
+            android:layout_marginTop="20dp"
+            android:padding="10dp"
+            app:cardCornerRadius="10dp"
+            app:cardElevation="5dp">
+
+            <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="120dp"
-                android:layout_marginTop="20dp"
-                android:padding="10dp"
-                app:cardCornerRadius="10dp"
-                app:cardElevation="5dp">
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:layout_marginLeft="5dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="15dp"
+                    android:layout_marginBottom="15dp"
+                    android:src="@drawable/undraw_onboarding_o8mv" />
 
                 <LinearLayout
-                    android:layout_width="match_parent"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:orientation="horizontal">
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginTop="15dp"
+                    android:orientation="vertical">
 
-                    <ImageView
+                    <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="15dp"
-                        android:layout_marginBottom="15dp"
-                        android:src="@drawable/undraw_files1_9ool"
-                        android:layout_marginLeft="5dp"/>
+                        android:text="Berita Sekolah"
+                        android:textColor="@android:color/black"
+                        android:textSize="20sp"
+                        android:textStyle="bold" />
 
-                    <LinearLayout
+                    <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginLeft="20dp"
-                        android:layout_marginTop="15dp"
-                        android:orientation="vertical">
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="Izin Piket"
-                            android:textColor="@android:color/black"
-                            android:textSize="20sp"
-                            android:textStyle="bold" />
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="Fitur untuk memudahkan untuk meminta izin ke penjaga piket"
-                            android:textColor="#C1C1C1"
-                            android:textSize="15sp" />
-                    </LinearLayout>
+                        android:text="Fitur yang berguna untuk membaca berita yang ada di lingkungan sekolah"
+                        android:textColor="#C1C1C1"
+                        android:textSize="15sp" />
                 </LinearLayout>
-            </androidx.cardview.widget.CardView>
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
 
-            <androidx.cardview.widget.CardView
-                android:id="@+id/perpustakaan"
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/helpDesk"
+            android:layout_width="match_parent"
+            android:layout_height="120dp"
+            android:layout_marginTop="20dp"
+            android:padding="10dp"
+            app:cardCornerRadius="10dp"
+            app:cardElevation="5dp">
+
+            <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="120dp"
-                android:layout_marginTop="20dp"
-                android:padding="10dp"
-                app:cardCornerRadius="10dp"
-                app:cardElevation="5dp">
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:layout_marginLeft="5dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="15dp"
+                    android:layout_marginBottom="15dp"
+                    android:src="@drawable/undraw_onboarding_o8mv" />
 
                 <LinearLayout
-                    android:layout_width="match_parent"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:orientation="horizontal">
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginTop="15dp"
+                    android:orientation="vertical">
 
-                    <ImageView
-                        android:layout_marginLeft="5dp"
+                    <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="15dp"
-                        android:layout_marginBottom="15dp"
-                        android:src="@drawable/undraw_bibliophile_hwqc" />
+                        android:text="Help Desk"
+                        android:textColor="@android:color/black"
+                        android:textSize="20sp"
+                        android:textStyle="bold" />
 
-                    <LinearLayout
+                    <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginLeft="20dp"
-                        android:layout_marginTop="15dp"
-                        android:orientation="vertical">
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="Perpustakaan"
-                            android:textColor="@android:color/black"
-                            android:textSize="20sp"
-                            android:textStyle="bold" />
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="Fitur yang berguna untuk menemukan buku berformat PDF"
-                            android:textColor="#C1C1C1"
-                            android:textSize="15sp" />
-                    </LinearLayout>
+                        android:text="Fitur yang berguna untuk siswa memberi keluhan - keluhan yang ada di sekolah"
+                        android:textColor="#C1C1C1"
+                        android:textSize="15sp" />
                 </LinearLayout>
-            </androidx.cardview.widget.CardView>
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
 
-
-            <androidx.cardview.widget.CardView
-                android:id="@+id/beritaSekolah"
-                android:layout_width="match_parent"
-                android:layout_height="120dp"
-                android:layout_marginTop="20dp"
-                android:padding="10dp"
-                app:cardCornerRadius="10dp"
-                app:cardElevation="5dp">
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal">
-
-                    <ImageView
-                        android:layout_marginLeft="5dp"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="15dp"
-                        android:layout_marginBottom="15dp"
-                        android:src="@drawable/undraw_onboarding_o8mv" />
-
-                    <LinearLayout
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginLeft="20dp"
-                        android:layout_marginTop="15dp"
-                        android:orientation="vertical">
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="Berita Sekolah"
-                            android:textColor="@android:color/black"
-                            android:textSize="20sp"
-                            android:textStyle="bold" />
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="Fitur yang berguna untuk membaca berita yang ada di lingkungan sekolah"
-                            android:textColor="#C1C1C1"
-                            android:textSize="15sp" />
-                    </LinearLayout>
-                </LinearLayout>
-            </androidx.cardview.widget.CardView>
-
-
-            <androidx.cardview.widget.CardView
-                android:id="@+id/helpDesk"
-                android:layout_width="match_parent"
-                android:layout_height="120dp"
-                android:layout_marginTop="20dp"
-                android:padding="10dp"
-                app:cardCornerRadius="10dp"
-                app:cardElevation="5dp">
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal">
-
-                    <ImageView
-                        android:layout_marginLeft="5dp"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="15dp"
-                        android:layout_marginBottom="15dp"
-                        android:src="@drawable/undraw_onboarding_o8mv" />
-
-                    <LinearLayout
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginLeft="20dp"
-                        android:layout_marginTop="15dp"
-                        android:orientation="vertical">
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="Help Desk"
-                            android:textColor="@android:color/black"
-                            android:textSize="20sp"
-                            android:textStyle="bold" />
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="Fitur yang berguna untuk siswa memberi keluhan - keluhan yang ada di sekolah"
-                            android:textColor="#C1C1C1"
-                            android:textSize="15sp" />
-                    </LinearLayout>
-                </LinearLayout>
-            </androidx.cardview.widget.CardView>
-
-        </LinearLayout>
+    </LinearLayout>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
-
-
 
 
 </ScrollView>

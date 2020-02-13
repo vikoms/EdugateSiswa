@@ -9,6 +9,7 @@ import androidx.annotation.NonNull;
 import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.edugate.Models.Guru;
 import com.example.edugate.Models.PanggilGuru;
 import com.example.edugate.R;
 
@@ -18,13 +19,13 @@ import de.hdodenhof.circleimageview.CircleImageView;
 
 public class IzinPiketAdapter extends RecyclerView.Adapter<IzinPiketAdapter.IzinPiketHolder> {
 
-    List<PanggilGuru> mList;
+    List<Guru> mList;
     OnItemClickCallback onItemClickCallback;
 
     public void setOnItemClickCallback(OnItemClickCallback onItemClickCallback) {
         this.onItemClickCallback = onItemClickCallback;
     }
-    public IzinPiketAdapter(List<PanggilGuru> mList) {
+    public IzinPiketAdapter(List<Guru> mList) {
         this.mList = mList;
     }
 
@@ -39,7 +40,7 @@ public class IzinPiketAdapter extends RecyclerView.Adapter<IzinPiketAdapter.Izin
 
     @Override
     public void onBindViewHolder(@NonNull final IzinPiketHolder holder, int position) {
-        PanggilGuru guru = mList.get(position);
+        Guru guru = mList.get(position);
         holder.txtNama.setText(guru.getNama());
         holder.txtPelajaran.setText(guru.getPelajaran());
 
@@ -76,6 +77,6 @@ public class IzinPiketAdapter extends RecyclerView.Adapter<IzinPiketAdapter.Izin
     }
 
     public interface OnItemClickCallback {
-        void onItemClicked(PanggilGuru data);
+        void onItemClicked(Guru data);
     }
 }

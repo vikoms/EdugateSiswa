@@ -7,58 +7,15 @@
     android:orientation="vertical">
 
 
-    <include
-        android:id="@+id/toolbar_beritaSekolah"
-        layout="@layout/toolbar_berita_sekolah" />
-
-    <ScrollView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@+id/toolbar_beritaSekolah">
-
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
-
-            <View
-                android:id="@+id/view3"
-                android:layout_width="match_parent"
-                android:layout_height="200dp"
-                android:background="#4d000000"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.0"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="@+id/carousel" />
-
-            <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/bsRecyclerView"
-                android:layout_width="match_parent"
-                android:layout_height="658dp"
-                android:layout_marginTop="14dp"
-                android:padding="10dp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/view3" />
-
-            <com.synnapps.carouselview.CarouselView
-                android:id="@+id/carouselBeritaSekolah"
-                android:layout_width="match_parent"
-                android:layout_height="200dp"
-                android:layout_marginTop="20dp"
-                app:fillColor="#ffffffff"
-                app:pageColor="#00000000"
-                app:radius="6dp"
-                app:slideInterval="3000"
-                app:strokeColor="#ff777777"
-                app:strokeWidth="1dp"
-                tools:ignore="MissingConstraints,NotSibling"
-                tools:layout_editor_absoluteX="0dp">
-
-            </com.synnapps.carouselview.CarouselView>
-
-        </androidx.constraintlayout.widget.ConstraintLayout>
-
-    </ScrollView>
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/bsRecyclerView"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:padding="15dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

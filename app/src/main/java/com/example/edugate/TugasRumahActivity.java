@@ -7,6 +7,9 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
+import android.view.MenuItem;
+import android.view.View;
+import android.widget.ProgressBar;
 import android.widget.Toast;
 
 import com.example.edugate.Adapter.TugasRumahAdapter;
@@ -33,6 +36,7 @@ public class TugasRumahActivity extends AppCompatActivity {
     FirebaseUser currentUser;
     ArrayList<Murid> listMurid;
     String kelas;
+    ProgressBar pgTugas;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -45,6 +49,21 @@ public class TugasRumahActivity extends AppCompatActivity {
         FirebaseAuth mAuth = FirebaseAuth.getInstance();
         currentUser = mAuth.getCurrentUser();
         refKelas = FirebaseDatabase.getInstance().getReference("Users").child("Murid").child(currentUser.getUid());
+        pgTugas = findViewById(R.id.progressBarTugas);
+        pgTugas.setVisibility(RecyclerView.VISIBLE);
+
+        if(getSupportActionBar() != null) {
+            getSupportActionBar().setTitle("Tugas Rumah");
+            getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        }
+
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+
+        if(item.getItemId() == android.R.id.home) finish();
+        return super.onOptionsItemSelected(item);
 
 
     }
@@ -60,6 +79,7 @@ public class TugasRumahActivity extends AppCompatActivity {
                 ref.orderByChild("kelas").equalTo(kelas).addListenerForSingleValueEvent(new ValueEventListener() {
                     @Override
                     public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                        pgTugas.setVisibility(View.INVISIBLE);
                         mList.clear();
                         for (DataSnapshot  tugasSnap: dataSnapshot.getChildren()) {
                             TugasRumah tugas = tugasSnap.getValue(TugasRumah.class);

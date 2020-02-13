@@ -1,15 +1,27 @@
 package com.example.edugate.Models;
 
 public class IzinPiket {
-    private String namaMurid,waktuIzin,alasanIzin,keyGuru,status,keyMurid;
+    private String idIzinPiket, namaMurid, waktuIzin, alasanIzin, keyGuru, status, keyMurid,keyGuru_status;
 
-    public IzinPiket(String namaMurid, String waktuIzin, String alasanIzin, String keyGuru, String status, String keyMurid) {
+    public IzinPiket(){}
+
+    public IzinPiket(String idIzinPiket, String namaMurid, String waktuIzin, String alasanIzin, String keyGuru, String status, String keyMurid, String keyGuru_status) {
+        this.idIzinPiket = idIzinPiket;
         this.namaMurid = namaMurid;
         this.waktuIzin = waktuIzin;
         this.alasanIzin = alasanIzin;
         this.keyGuru = keyGuru;
         this.status = status;
         this.keyMurid = keyMurid;
+        this.keyGuru_status = keyGuru_status;
+    }
+
+    public String getIdIzinPiket() {
+        return idIzinPiket;
+    }
+
+    public void setIdIzinPiket(String idIzinPiket) {
+        this.idIzinPiket = idIzinPiket;
     }
 
     public String getNamaMurid() {
@@ -58,5 +70,13 @@ public class IzinPiket {
 
     public void setKeyMurid(String keyMurid) {
         this.keyMurid = keyMurid;
+    }
+
+    public String getKeyGuru_status() {
+        return keyGuru_status;
+    }
+
+    public void setKeyGuru_status(String keyGuru_status) {
+        this.keyGuru_status = keyGuru_status;
     }
 }

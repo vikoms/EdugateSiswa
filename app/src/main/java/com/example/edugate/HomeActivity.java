@@ -8,6 +8,7 @@ import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.fragment.app.Fragment;
 
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.Gravity;
 import android.view.MenuItem;
@@ -16,6 +17,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.bumptech.glide.Glide;
 import com.example.edugate.Fragment.FragmentHome;
 import com.example.edugate.Models.Murid;
 import com.google.android.material.navigation.NavigationView;
@@ -41,6 +43,7 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
     DatabaseReference ref;
     NavigationView navigationView;
     String nama,email;
+    Uri imgProfile;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -69,11 +72,13 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
             }
         });
 
+
         ref.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                  nama = dataSnapshot.child("name").getValue(String.class);
                  email = currentUser.getEmail();
+                 imgProfile = currentUser.getPhotoUrl();
                  updateDrawer();
 
             }
@@ -92,8 +97,10 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
         View header = navigationView.getHeaderView(0);
         TextView headerName = (TextView) header.findViewById(R.id.tv_user_name);
         TextView headerEmail = (TextView) header.findViewById(R.id.tv_user_email);
+        ImageView headerPhoto = (ImageView) header.findViewById(R.id.img_photo_profile);
         headerName.setText(nama);
         headerEmail.setText(email);
+        Glide.with(getApplicationContext()).load(imgProfile).into(headerPhoto);
 
     }
 
@@ -112,7 +119,8 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
                 finish();
                 return true;
             case R.id.tk:
-                Toast.makeText(this, "Cekson", Toast.LENGTH_SHORT).show();
+                Intent about = new Intent(HomeActivity.this,AboutActivity.class);
+                startActivity(about);
                 return true;
             case R.id.btnProfile:
                 Intent profile = new Intent(this, ProfileActivity.class);

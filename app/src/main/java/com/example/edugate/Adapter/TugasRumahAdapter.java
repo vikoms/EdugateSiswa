@@ -44,14 +44,14 @@ public class TugasRumahAdapter extends RecyclerView.Adapter<TugasRumahAdapter.Vi
             public void onClick(View view) {
                 TextView tv_judul_tugas = (TextView) dialog_tugas.findViewById(R.id.tv_dialog_judul_tugas);
                 TextView tv_ket_tugas = (TextView) dialog_tugas.findViewById(R.id.tv_dialog_ket_tugas);
-                TextView tv_subjudul_tugas = (TextView) dialog_tugas.findViewById(R.id.tv_dialog_subjudul_tugas);
+//                TextView tv_subjudul_tugas = (TextView) dialog_tugas.findViewById(R.id.tv_dialog_subjudul_tugas);
                 TextView tv_deadline_tugas = (TextView) dialog_tugas.findViewById(R.id.tv_dialog_deadline_tugas);
                 Button btn_ok_tugas = (Button) dialog_tugas.findViewById(R.id.btn_ok_dialog_tugas);
 
                 tv_judul_tugas.setText(listTugas.get(vHolder.getAdapterPosition()).getNama());
                 tv_ket_tugas.setText(listTugas.get(vHolder.getAdapterPosition()).getDesc());
-                tv_subjudul_tugas.setText(listTugas.get(vHolder.getAdapterPosition()).getNama());
-                tv_deadline_tugas.setText(listTugas.get(vHolder.getAdapterPosition()).getDate());
+//                tv_subjudul_tugas.setText(listTugas.get(vHolder.getAdapterPosition()).getNama());
+                tv_deadline_tugas.setText("Deadline Tanggal :" + listTugas.get(vHolder.getAdapterPosition()).getDate());
 
                 dialog_tugas.show();
 

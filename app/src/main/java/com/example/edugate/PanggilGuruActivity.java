@@ -3,14 +3,24 @@ package com.example.edugate;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.SearchView;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.app.SearchManager;
+import android.content.Context;
 import android.os.Bundle;
 import android.os.PersistableBundle;
+import android.text.Editable;
+import android.text.TextWatcher;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
+import android.widget.EditText;
 import android.widget.Toast;
 
 import com.example.edugate.Adapter.PanggilGuruAdapter;
+import com.example.edugate.Models.Guru;
 import com.example.edugate.Models.PanggilGuru;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -26,8 +36,9 @@ import java.util.List;
 public class PanggilGuruActivity extends AppCompatActivity {
     private RecyclerView mRecyclerView;
     private RecyclerView.LayoutManager mLayoutManager;
-    private List<PanggilGuru> listGuru;
+    private List<Guru> listGuru;
     private PanggilGuruAdapter myAdapter;
+    private EditText searchInput;
     FirebaseDatabase firebaseDatabase;
     DatabaseReference ref;
     FirebaseUser currentUser;
@@ -39,21 +50,6 @@ public class PanggilGuruActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_panggil_guru);
 
-//        listGuru.add(new PanggilGuru("John Doe", "IPA", R.drawable.john));
-//        listGuru.add(new PanggilGuru("Selfie Amanda", "IPS", R.drawable.selfie));
-//        listGuru.add(new PanggilGuru("Natalie", "Matematika", R.drawable.natalie));
-//
-//        listGuru.add(new PanggilGuru("John Doe", "IPA", R.drawable.john));
-//        listGuru.add(new PanggilGuru("Selfie Amanda", "IPS", R.drawable.selfie));
-//        listGuru.add(new PanggilGuru("Natalie", "Matematika", R.drawable.natalie));
-//
-//        listGuru.add(new PanggilGuru("John Doe", "IPA", R.drawable.john));
-//        listGuru.add(new PanggilGuru("Selfie Amanda", "IPS", R.drawable.selfie));
-//        listGuru.add(new PanggilGuru("Natalie", "Matematika", R.drawable.natalie));
-//
-//        listGuru.add(new PanggilGuru("John Doe", "IPA", R.drawable.john));
-//        listGuru.add(new PanggilGuru("Selfie Amanda", "IPS", R.drawable.selfie));
-//        listGuru.add(new PanggilGuru("Natalie", "Matematika", R.drawable.natalie));
 
         mAuth = FirebaseAuth.getInstance();
         currentUser = mAuth.getCurrentUser();
@@ -65,11 +61,49 @@ public class PanggilGuruActivity extends AppCompatActivity {
         mRecyclerView.setLayoutManager(new LinearLayoutManager(this));
 
 
-
         firebaseDatabase = FirebaseDatabase.getInstance();
         ref = firebaseDatabase.getReference("Users").child("Guru");
 
 
+        if(getSupportActionBar() != null) {
+            getSupportActionBar().setTitle("Panggil Guru");
+            getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        }
+
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        if(item.getItemId() == android.R.id.home) finish();
+        return super.onOptionsItemSelected(item);
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.main_menu,menu);
+
+        SearchManager searchManager = (SearchManager) getSystemService(Context.SEARCH_SERVICE);
+
+        if(searchManager != null) {
+            SearchView searchView = (SearchView) (menu.findItem(R.id.search)).getActionView();
+            searchView.setSearchableInfo(searchManager.getSearchableInfo(getComponentName()));
+            searchView.setQueryHint("Search...");
+            searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+                @Override
+                public boolean onQueryTextSubmit(String s) {
+                    return false;
+                }
+
+                @Override
+                public boolean onQueryTextChange(String s) {
+                    myAdapter.getFilter().filter(s);
+                    return true;
+                }
+            });
+        }
+
+        return super.onCreateOptionsMenu(menu);
     }
 
     @Override
@@ -81,9 +115,9 @@ public class PanggilGuruActivity extends AppCompatActivity {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 listGuru.clear();
-                for (DataSnapshot guru : dataSnapshot.getChildren()) {
-                    PanggilGuru panggilGuru = guru.getValue(PanggilGuru.class);
-                    listGuru.add(panggilGuru);
+                for (DataSnapshot guruData : dataSnapshot.getChildren()) {
+                    Guru guru = guruData.getValue(Guru.class);
+                    listGuru.add(guru);
                 }
                 myAdapter = new PanggilGuruAdapter(listGuru);
                 mRecyclerView.setAdapter(myAdapter);
@@ -96,5 +130,8 @@ public class PanggilGuruActivity extends AppCompatActivity {
 
             }
         });
+
     }
+
+    
 }

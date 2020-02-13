@@ -1,8 +1,10 @@
 package com.example.edugate;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+import android.view.MenuItem;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -32,5 +34,18 @@ public class detail_berita extends AppCompatActivity {
         Glide.with(this).load(berita.getGambarBerita()).into(banner);
         date.setText(berita.getTanggalBerita());
 
+
+        if(getSupportActionBar() != null) {
+            getSupportActionBar().setTitle("Detail Berita");
+            getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        }
+
+    }
+
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        if(item.getItemId() == android.R.id.home) finish();
+        return super.onOptionsItemSelected(item);
     }
 }

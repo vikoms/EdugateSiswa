@@ -12,6 +12,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.Filter;
+import android.widget.Filterable;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -27,13 +28,16 @@ import java.util.ArrayList;
 import java.util.List;
 
 
-public class PerpustakaanAdapter extends RecyclerView.Adapter<PerpustakaanAdapter.ViewHolder> {
+public class PerpustakaanAdapter extends RecyclerView.Adapter<PerpustakaanAdapter.ViewHolder> implements Filterable {
 
     private List<Book> BookList;
+    private List<Book> BookListFiltered;
+
     private Context mContext;
 
     public PerpustakaanAdapter(List<Book> bookList, Context mContext) {
         BookList = bookList;
+        this.BookListFiltered = bookList;
         this.mContext = mContext;
     }
 
@@ -90,16 +94,50 @@ public class PerpustakaanAdapter extends RecyclerView.Adapter<PerpustakaanAdapte
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
 
-        holder.judul.setText(BookList.get(position).getName());
-        holder.kelas.setText(BookList.get(position).getKelas());
-        holder.penerbit.setText(BookList.get(position).getPenerbit());
+        holder.judul.setText(BookListFiltered.get(position).getName());
+        holder.kelas.setText("Kelas : " + BookListFiltered.get(position).getKelas());
+        holder.penerbit.setText("Penerbit :"+BookListFiltered.get(position).getPenerbit());
         holder.gambar_buku.setImageResource(R.drawable.ipa1);
 
     }
 
     @Override
     public int getItemCount() {
-        return BookList.size();
+        return BookListFiltered.size();
+    }
+
+    @Override
+    public Filter getFilter() {
+        return new Filter() {
+
+            @Override
+            protected FilterResults performFiltering(CharSequence charSequence) {
+                String key = charSequence.toString();
+                if(key.isEmpty()) {
+                    BookListFiltered = BookList;
+                } else {
+                    List<Book> listFiltered =  new ArrayList<>();
+                    for(Book row : BookList) {
+                        if(row.getName().toLowerCase().contains(key.toLowerCase())) {
+                            listFiltered.add(row);
+                        }
+                    }
+
+                    BookListFiltered = listFiltered;
+                }
+
+                FilterResults filterResults = new FilterResults();
+                filterResults.values = BookListFiltered;
+
+                return filterResults;
+            }
+
+            @Override
+            protected void publishResults(CharSequence charSequence, FilterResults filterResults) {
+                BookListFiltered = (List<Book>) filterResults.values;
+                notifyDataSetChanged();
+            }
+        };
     }
 
 

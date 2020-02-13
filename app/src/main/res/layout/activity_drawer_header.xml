@@ -5,7 +5,6 @@
     android:layout_width="match_parent"
     android:layout_height="180dp"
     android:background="#BE2EDD"
-    tools:context=".DrawerHeaderActivity"
     android:padding="30dp"
     android:layout_marginTop="10dp"
     android:orientation="vertical">
@@ -15,9 +14,11 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal">
     <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/img_photo_profile"
         android:layout_marginRight="12dp"
         android:layout_width="80dp"
         android:layout_height="80dp"
+        android:contentDescription="Photo Profile"
         android:src="@drawable/ic_person_black_24dp"
         android:background="#fff"/>
 

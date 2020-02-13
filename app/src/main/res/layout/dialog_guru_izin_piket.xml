@@ -14,4 +14,10 @@
         android:layout_height="match_parent"
         android:id="@+id/rv_izin_piket_guru"/>
 
+    <ProgressBar
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:id="@+id/pg_guru_izin_piket"
+        android:layout_centerInParent="true"/>
+
 </RelativeLayout>

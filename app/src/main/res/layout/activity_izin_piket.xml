@@ -1,153 +1,180 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:orientation="vertical"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:padding="10dp">
 
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
-
-    <LinearLayout
-        android:id="@+id/linearLayout4"
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:background="@color/colorPrimaryDark"
-        android:gravity="center"
-        tools:ignore="MissingConstraints">
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Izin Piket"
-            android:textColor="@android:color/white"
-            android:textSize="30sp"
-            android:textStyle="bold" />
-    </LinearLayout>
 
     <androidx.cardview.widget.CardView
-        android:id="@+id/cardView"
+        android:id="@+id/cardView2"
         android:layout_width="match_parent"
         android:layout_height="100dp"
-        android:layout_marginTop="40dp"
-        android:layout_marginLeft="20dp"
-        android:layout_marginRight="20dp"
-        android:layout_centerHorizontal="true"
+        android:elevation="5dp"
         app:cardCornerRadius="5dp"
-        android:layout_below="@+id/linearLayout4">
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             android:orientation="vertical"
             android:padding="10dp">
-        <TextView
-            android:layout_marginBottom="5dp"
-            android:id="@+id/text"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Notice"
-            android:textSize="20sp"
-            android:textStyle="bold"
-            android:textColor="@android:color/black"/>
 
-        <TextView
-            android:id="@+id/text2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Harap diisi dengan jelas!!!"
-            android:textSize="20sp"
-            android:textStyle="bold"
-            android:textColor="@android:color/holo_purple"/>
+            <TextView
+                android:id="@+id/text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="5dp"
+                android:text="Notice"
+                android:textColor="@android:color/black"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/text2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Harap diisi dengan jelas!!!"
+                android:textColor="@android:color/holo_purple"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+
+
         </LinearLayout>
 
     </androidx.cardview.widget.CardView>
 
-<LinearLayout
-    android:id="@+id/form"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:orientation="vertical"
-    android:layout_below="@+id/cardView"
-    android:padding="20dp">
-
-        <EditText
-            android:layout_marginBottom="10dp"
-            android:drawableLeft="@drawable/ic_person_black_24dp"
-            android:hint="Nama"
-            android:id="@+id/piketNama"
-            android:layout_width="match_parent"
-            android:layout_height="60dp"
-            android:drawablePadding="20dp"/>
-
-        <EditText
-            android:layout_marginBottom="10dp"
-            android:drawableLeft="@drawable/ic_date_range_black_24dp"
-            android:id="@+id/jamPiket"
-            android:layout_width="match_parent"
-            android:layout_height="60dp"
-            android:hint="Waktu"
-            android:drawablePadding="20dp"/>
-
-        <EditText
-            android:layout_marginBottom="10dp"
-            android:drawableLeft="@drawable/ic_star_black_24dp"
-            android:id="@+id/alasanPiket"
-            android:layout_width="match_parent"
-            android:layout_height="60dp"
-            android:hint="Alasan"
-            android:drawablePadding="20dp"/>
-
-    <LinearLayout
-        android:layout_width="match_parent"
+    <EditText
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:orientation="horizontal">
-        <Button
-            android:layout_width="100dp"
-            android:layout_height="wrap_content"
-            android:background="@drawable/btn_more"
-            android:text="Pilih Guru"
-            android:id="@+id/btn_pilih_guru"
-            android:textColor="@android:color/white"/>
+        android:drawableLeft="@drawable/ic_person_black_24dp"
+        android:hint="Nama"
+        android:id="@+id/piketNama"
+        android:textColor="@android:color/black"
+        android:drawablePadding="20dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/cardView2"
+        app:layout_constraintVertical_bias="0.043" />
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textSize="20sp"
-            tools:text="Nama Guru"
-            android:id="@+id/txt_nama_guru"
-            android:layout_gravity="center_vertical"
-            android:layout_marginLeft="10dp"/>
-    </LinearLayout>
-</LinearLayout>
+    <EditText
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:textColor="@android:color/black"
+        android:drawableLeft="@drawable/ic_star_black_24dp"
+        android:id="@+id/alasanPiket"
+        android:hint="Alasan"
+        android:drawablePadding="20dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/piketNama"
+        app:layout_constraintVertical_bias="0.01999998" />
+
+    <TextView
+        android:id="@+id/textView5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Waktu izin : "
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/alasanPiket"
+        app:layout_constraintVertical_bias="0.02"
+        android:textColor="@android:color/black"
+        android:textSize="17sp"
+        android:textStyle="bold"/>
+
+    <ImageButton
+        android:id="@+id/btn_choose_time_izin_piket"
+        android:background="@color/colorPrimary"
+        android:padding="10dp"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/textView5"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/textView5"
+        app:layout_constraintTop_toBottomOf="@+id/textView5"
+        app:layout_constraintVertical_bias="0.021"
+        app:srcCompat="@drawable/ic_access_time_black_24dp" />
+
+    <TextView
+        android:id="@+id/tv_waktu_izin_piket"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:textColor="@android:color/black"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="@+id/btn_choose_time_izin_piket"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toEndOf="@+id/btn_choose_time_izin_piket"
+        app:layout_constraintTop_toTopOf="@+id/btn_choose_time_izin_piket"
+        app:layout_constraintVertical_bias="0.529"
+        tools:text="12:00" />
 
     <Button
-        android:layout_centerHorizontal="true"
-        android:layout_below="@id/form"
-        android:id="@+id/btn_konfirmasi"
-        android:layout_width="150dp"
+        android:id="@+id/btn_pilih_guru"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:background="@drawable/btn_more"
-        android:text="Continue"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="32dp"
+        android:text="Pilih Guru"
+        android:background="@color/colorPrimary"
         android:textColor="@android:color/white"
-        android:textSize="20sp"/>
+        android:padding="10dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btn_choose_time_izin_piket"
+        app:layout_constraintVertical_bias="0.0" />
 
-        <ProgressBar
-            android:id="@+id/progressBarIzin"
-            style="?android:attr/progressBarStyle"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/form"
-            android:layout_alignParentStart="true"
-            android:layout_alignParentEnd="true"
-            android:layout_marginStart="185dp"
-            android:layout_marginTop="23dp"
-            android:layout_marginEnd="178dp" />
+    <TextView
+        android:id="@+id/txt_nama_guru"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:textColor="@android:color/black"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="@+id/btn_pilih_guru"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.036"
+        app:layout_constraintStart_toStartOf="@+id/tv_waktu_izin_piket"
+        app:layout_constraintTop_toTopOf="@+id/btn_pilih_guru"
+        app:layout_constraintVertical_bias="0.482"
+        tools:text="Viko Muhammad Saputra" />
 
-    </RelativeLayout>
+    <Button
+        android:id="@+id/btn_konfirmasi"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:background="@color/colorPrimary"
+        android:padding="10dp"
+        android:text="Konfirmasi"
+        android:textColor="@android:color/white"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.458"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btn_pilih_guru"
+        app:layout_constraintVertical_bias="0.19999999" />
 
+    <ProgressBar
+        android:id="@+id/progressBarIzin"
+        style="?android:attr/progressBarStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="@+id/btn_konfirmasi"
+        app:layout_constraintEnd_toEndOf="@+id/btn_konfirmasi"
+        app:layout_constraintStart_toStartOf="@+id/btn_konfirmasi"
+        app:layout_constraintTop_toTopOf="@+id/btn_konfirmasi" />
 
-</ScrollView>
+</androidx.constraintlayout.widget.ConstraintLayout>

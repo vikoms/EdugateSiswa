@@ -1,11 +1,19 @@
 package com.example.edugate;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.SearchView;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.app.SearchManager;
+import android.content.Context;
 import android.os.Bundle;
+import android.os.PersistableBundle;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 
 import com.example.edugate.Adapter.PerpustakaanAdapter;
 import com.example.edugate.Models.Book;
@@ -29,6 +37,7 @@ public class PerpustakaanActivity extends AppCompatActivity {
     StorageReference mStorageRef;
     DatabaseReference ref;
     RecyclerView rcv;
+    PerpustakaanAdapter adapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,12 +48,6 @@ public class PerpustakaanActivity extends AppCompatActivity {
         database = FirebaseDatabase.getInstance();
         ref = database.getReference("Perpustakaan");
         mStorageRef = FirebaseStorage.getInstance().getReference();
-//        listBook.add(new Book("Buku Biologi", "Kelas 10", "Elangga",R.drawable.ipa1));
-//        listBook.add(new Book("Buku Fisika", "Kelas 10", "Elangga",R.drawable.ipa2));
-//        listBook.add(new Book("Buku Bahasa Indonesia", "Kelas 12", "Elangga",R.drawable.indo));
-//        listBook.add(new Book("Buku IPS", "Kelas 11", "Elangga",R.drawable.ips));
-//        listBook.add(new Book("Buku Matematika", "Kelas 10", "Elangga",R.drawable.matematika));
-//        listBook.add(new Book("Buku Bahasa Inggris", "Kelas 11", "Elangga",R.drawable.inggris));
 
 
         viewAllPdf();
@@ -55,8 +58,45 @@ public class PerpustakaanActivity extends AppCompatActivity {
         rcv.setHasFixedSize(true);
         rcv.setLayoutManager(mLayoutManager);
 
+        if(getSupportActionBar() != null) {
+            getSupportActionBar().setTitle("Perpustakaan");
+            getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        }
 
+    }
 
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        if(item.getItemId() == android.R.id.home) finish();
+        return super.onOptionsItemSelected(item);
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.main_menu,menu);
+
+        SearchManager searchManager = (SearchManager) getSystemService(Context.SEARCH_SERVICE);
+
+        if(searchManager != null) {
+            SearchView searchView = (SearchView) (menu.findItem(R.id.search)).getActionView();
+            searchView.setSearchableInfo(searchManager.getSearchableInfo(getComponentName()));
+            searchView.setQueryHint("Search...");
+            searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+                @Override
+                public boolean onQueryTextSubmit(String s) {
+                    return false;
+                }
+
+                @Override
+                public boolean onQueryTextChange(String s) {
+                    adapter.getFilter().filter(s);
+                    return true;
+                }
+            });
+        }
+
+        return super.onCreateOptionsMenu(menu);
     }
 
     private void viewAllPdf() {
@@ -70,7 +110,7 @@ public class PerpustakaanActivity extends AppCompatActivity {
                     Book book = bookList.getValue(Book.class);
                     listBook.add(book);
                 }
-                PerpustakaanAdapter adapter = new PerpustakaanAdapter(listBook, PerpustakaanActivity.this);
+                 adapter = new PerpustakaanAdapter(listBook, PerpustakaanActivity.this);
 
                 rcv.setLayoutManager(mLayoutManager);
                 rcv.setAdapter(adapter);

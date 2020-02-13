@@ -1,50 +1,56 @@
 package com.example.edugate.Models;
 
 public class PanggilGuru {
-    private String nama,Pelajaran;
-    private int gambar;
-    private String uid;
+    private String namaGuru,PelajaranGuru;
+    private String uidGuru;
+    private String namaMurid;
+    private String keyKelasMurid;
 
-    public PanggilGuru(String nama, String Pelajaran, int gambar,String uid) {
-        this.nama = nama;
-        this.Pelajaran = Pelajaran;
-        this.gambar = gambar;
-        this.uid = uid;
+    public PanggilGuru(String namaGuru, String pelajaranGuru, String uidGuru,String namaMurid,String keyKelasMurid) {
+        this.namaGuru = namaGuru;
+        PelajaranGuru = pelajaranGuru;
+        this.uidGuru = uidGuru;
+        this.namaMurid = namaMurid;
+        this.keyKelasMurid = keyKelasMurid;
     }
 
-
-    public PanggilGuru() {
+    public String getNamaGuru() {
+        return namaGuru;
     }
 
-    public String getUid() {
-        return uid;
+    public void setNamaGuru(String namaGuru) {
+        this.namaGuru = namaGuru;
     }
 
-    public void setUid(String uid) {
-        this.uid = uid;
+    public String getPelajaranGuru() {
+        return PelajaranGuru;
     }
 
-    public String getNama() {
-        return nama;
+    public void setPelajaranGuru(String pelajaranGuru) {
+        PelajaranGuru = pelajaranGuru;
     }
 
-    public void setNama(String nama) {
-        this.nama = nama;
+    public String getUidGuru() {
+        return uidGuru;
     }
 
-    public String getPelajaran() {
-        return Pelajaran;
+    public void setUidGuru(String uidGuru) {
+        this.uidGuru = uidGuru;
     }
 
-    public void setPelajaran(String Pelajaran) {
-        this.Pelajaran = Pelajaran;
+    public String getnamaMurid() {
+        return namaMurid;
     }
 
-    public int getGambar() {
-        return gambar;
+    public void setnamaMurid(String namaMurid) {
+        this.namaMurid = namaMurid;
     }
 
-    public void setGambar(int gambar) {
-        this.gambar = gambar;
+    public String getKeyKelasMurid() {
+        return keyKelasMurid;
+    }
+
+    public void setKeyKelasMurid(String keyKelasMurid) {
+        this.keyKelasMurid = keyKelasMurid;
     }
 }

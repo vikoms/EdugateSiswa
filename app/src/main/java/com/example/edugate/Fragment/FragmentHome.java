@@ -16,6 +16,7 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
+import com.bumptech.glide.Glide;
 import com.example.edugate.HelpDeskActivity;
 import com.example.edugate.IzinPiketActivity;
 import com.example.edugate.PanggilGuruActivity;
@@ -29,16 +30,9 @@ import com.synnapps.carouselview.ImageListener;
 
 public class FragmentHome extends Fragment implements View.OnClickListener {
 
-    private int[] mImage = new int[]{
-            R.drawable.foto_1, R.drawable.foto_2
-    };
-
-    private String[] mImageTitle = new String[]{
-            "Contoh 1", "Contoh 2"
-    };
-
     CardView panggil_guru, daftar_tugas, izin_piket, mPerpustakaan, help_desk, beritaSekolah,helpDesk;
     Button more;
+    ImageView imgLogo;
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -51,21 +45,6 @@ public class FragmentHome extends Fragment implements View.OnClickListener {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
 
-//        UNTUK CAROUSEL
-        CarouselView carouselView = (CarouselView) getView().findViewById(R.id.carousel);
-        carouselView.setImageListener(new ImageListener() {
-            @Override
-            public void setImageForPosition(int position, ImageView imageView) {
-                imageView.setImageResource(mImage[position]);
-            }
-        });
-        carouselView.setImageClickListener(new ImageClickListener() {
-            @Override
-            public void onClick(int position) {
-                Toast.makeText(getActivity(), mImageTitle[position], Toast.LENGTH_SHORT).show();
-            }
-        });
-        carouselView.setPageCount(mImage.length);
 
         CardView cvPanggilGuru = getView().findViewById(R.id.panggilGuru);
         cvPanggilGuru.setOnClickListener(new View.OnClickListener() {
@@ -75,6 +54,8 @@ public class FragmentHome extends Fragment implements View.OnClickListener {
             }
         });
 
+        imgLogo = getView().findViewById(R.id.image_smkn4);
+        Glide.with(getActivity()).load(R.drawable.smkn4).into(imgLogo);
 
         panggil_guru = getView().findViewById(R.id.panggilGuru);
         panggil_guru.setOnClickListener(this);

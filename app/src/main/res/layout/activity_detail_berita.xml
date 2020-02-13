@@ -11,15 +11,11 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
-    <include
-        android:id="@+id/toolbar_berita"
-        layout="@layout/toolbar_berita_sekolah" />
 
     <ImageView
         android:id="@+id/news_banner"
         android:layout_width="match_parent"
         android:layout_height="190dp"
-        android:layout_below="@+id/toolbar_berita"
         android:background="#4d000000"
         android:src="@drawable/foto_1"
         />

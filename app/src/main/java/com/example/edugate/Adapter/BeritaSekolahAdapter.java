@@ -6,6 +6,8 @@ import android.text.Layout;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Filter;
+import android.widget.Filterable;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -20,15 +22,19 @@ import com.example.edugate.detail_berita;
 
 import org.w3c.dom.Text;
 
+import java.util.ArrayList;
 import java.util.List;
 
-public class BeritaSekolahAdapter extends RecyclerView.Adapter<BeritaSekolahAdapter.ViewHolder> {
+public class BeritaSekolahAdapter extends RecyclerView.Adapter<BeritaSekolahAdapter.ViewHolder> implements Filterable {
 
     private List<BeritaSekolah> mList;
+    private List<BeritaSekolah> mListFiltered;
+
     private Context mContext;
 
     public BeritaSekolahAdapter(List<BeritaSekolah> listBerita) {
         this.mList = listBerita;
+        this.mListFiltered = listBerita;
     }
 
     @NonNull
@@ -45,7 +51,7 @@ public class BeritaSekolahAdapter extends RecyclerView.Adapter<BeritaSekolahAdap
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-        final BeritaSekolah berita = mList.get(position);
+        final BeritaSekolah berita = mListFiltered.get(position);
         holder.titleBeritaSekolah.setText(berita.getJudulBerita());
         holder.descBeritaSekolah.setText(berita.getIsiBerita());
 
@@ -70,7 +76,41 @@ public class BeritaSekolahAdapter extends RecyclerView.Adapter<BeritaSekolahAdap
 
     @Override
     public int getItemCount() {
-        return mList.size();
+        return mListFiltered.size();
+    }
+
+    @Override
+    public Filter getFilter() {
+        return new Filter() {
+
+            @Override
+            protected FilterResults performFiltering(CharSequence charSequence) {
+                String key = charSequence.toString();
+                if(key.isEmpty()) {
+                    mListFiltered = mList;
+                } else {
+                    List<BeritaSekolah> listFiltered =  new ArrayList<>();
+                    for(BeritaSekolah row : mList) {
+                        if(row.getJudulBerita().toLowerCase().contains(key.toLowerCase())) {
+                            listFiltered.add(row);
+                        }
+                    }
+
+                    mListFiltered = listFiltered;
+                }
+
+                FilterResults filterResults = new FilterResults();
+                filterResults.values = mListFiltered;
+
+                return filterResults;
+            }
+
+            @Override
+            protected void publishResults(CharSequence charSequence, FilterResults filterResults) {
+                mListFiltered = (List<BeritaSekolah>) filterResults.values;
+                notifyDataSetChanged();
+            }
+        };
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {

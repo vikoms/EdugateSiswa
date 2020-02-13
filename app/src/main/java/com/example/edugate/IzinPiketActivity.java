@@ -1,15 +1,22 @@
 package com.example.edugate;
 
 import android.app.Dialog;
+import android.app.TimePickerDialog;
 import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
+import android.text.format.DateFormat;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.ProgressBar;
 import android.widget.TextView;
+import android.widget.TimePicker;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -18,8 +25,8 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.edugate.Adapter.IzinPiketAdapter;
+import com.example.edugate.Models.Guru;
 import com.example.edugate.Models.IzinPiket;
-import com.example.edugate.Models.PanggilGuru;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.FirebaseAuth;
@@ -31,26 +38,21 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.List;
 
 public class IzinPiketActivity extends AppCompatActivity {
 
     Dialog myDialog;
-    Button btnPilihGuru;
-    Button btnConfirm;
-    EditText Edtnama;
-    EditText Edtalasan;
-    EditText Edtwaktu;
-    TextView txtNamaGuru;
-    List<PanggilGuru> guruList;
+    Button btnPilihGuru, btnConfirm;
+    ImageButton btnChooseTime;
+    EditText Edtnama, Edtalasan;
+    TextView txtNamaGuru, tvWaktu;
+    List<Guru> guruList;
     DatabaseReference refGuru;
     DatabaseReference refIzinPiket;
-    String namaGuru;
-    String namaMurid;
-    String waktuIzin;
-    String alasanIzin;
-    String uidGuru;
-    ProgressBar progressBarIzin;
+    String namaGuru, namaMurid, waktuIzin, alasanIzin, uidGuru, keyGuru_status;
+    ProgressBar progressBarIzin, pgDialogGuru;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -70,7 +72,7 @@ public class IzinPiketActivity extends AppCompatActivity {
 
                 izinPiketAdapter.setOnItemClickCallback(new IzinPiketAdapter.OnItemClickCallback() {
                     @Override
-                    public void onItemClicked(PanggilGuru data) {
+                    public void onItemClicked(Guru data) {
                         namaGuru = data.getNama();
                         uidGuru = data.getUid();
                         myDialog.dismiss();
@@ -92,7 +94,53 @@ public class IzinPiketActivity extends AppCompatActivity {
             }
         });
 
+        btnChooseTime.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                showTimeDialog();
+            }
+        });
 
+        if (getSupportActionBar() != null) {
+            getSupportActionBar().setTitle("Izin Piket");
+            getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        }
+
+
+    }
+
+    private void showTimeDialog() {
+        int hour = Calendar.getInstance().get(Calendar.HOUR);
+        int min = Calendar.getInstance().get(Calendar.MINUTE);
+
+        boolean is24HoursFormat = DateFormat.is24HourFormat(this);
+
+        TimePickerDialog timePickerDialog = new TimePickerDialog(this, new TimePickerDialog.OnTimeSetListener() {
+            @Override
+            public void onTimeSet(TimePicker timePicker, int hour, int min) {
+                String time = hour + ":" + min;
+                tvWaktu.setText(time);
+            }
+        }, hour, min, is24HoursFormat);
+        timePickerDialog.show();
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.izin_piket_menu, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        if (item.getItemId() == R.id.list_izin_piket) {
+            Intent moveToList = new Intent(IzinPiketActivity.this, ListIzinPiketActivity.class);
+            startActivity(moveToList);
+        } else if (item.getItemId() == android.R.id.home) {
+            finish();
+        }
+        return true;
     }
 
     @Override
@@ -102,8 +150,9 @@ public class IzinPiketActivity extends AppCompatActivity {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 guruList.clear();
+                pgDialogGuru.setVisibility(View.INVISIBLE);
                 for (DataSnapshot itemGuru : dataSnapshot.getChildren()) {
-                    PanggilGuru guru = itemGuru.getValue(PanggilGuru.class);
+                    Guru guru = itemGuru.getValue(Guru.class);
                     guruList.add(guru);
                 }
             }
@@ -118,9 +167,10 @@ public class IzinPiketActivity extends AppCompatActivity {
     public void sendData() {
         namaMurid = Edtnama.getText().toString();
         alasanIzin = Edtalasan.getText().toString();
-        waktuIzin = Edtwaktu.getText().toString();
+        waktuIzin = tvWaktu.getText().toString();
+        keyGuru_status = uidGuru + "_0";
         FirebaseUser currentUser = FirebaseAuth.getInstance().getCurrentUser();
-        if(namaMurid.isEmpty() || alasanIzin.isEmpty() || waktuIzin.isEmpty() || namaGuru.isEmpty()) {
+        if (namaMurid.isEmpty() || alasanIzin.isEmpty() || waktuIzin.isEmpty() || namaGuru.isEmpty()) {
             Toast.makeText(this, "Isi data dengan lengkap", Toast.LENGTH_SHORT).show();
         } else {
 
@@ -128,7 +178,7 @@ public class IzinPiketActivity extends AppCompatActivity {
             btnConfirm.setVisibility(View.GONE);
             String id = refIzinPiket.push().getKey();
             String uidMurid = currentUser.getUid();
-            IzinPiket izinPiket = new IzinPiket(namaMurid,waktuIzin,alasanIzin,uidGuru,"0",uidMurid);
+            IzinPiket izinPiket = new IzinPiket(id, namaMurid, waktuIzin, alasanIzin, uidGuru, "0", uidMurid, keyGuru_status);
             refIzinPiket.child(id).setValue(izinPiket).addOnSuccessListener(new OnSuccessListener<Void>() {
                 @Override
                 public void onSuccess(Void aVoid) {
@@ -161,10 +211,11 @@ public class IzinPiketActivity extends AppCompatActivity {
         btnConfirm = findViewById(R.id.btn_konfirmasi);
         Edtnama = findViewById(R.id.piketNama);
         Edtalasan = findViewById(R.id.alasanPiket);
-        Edtwaktu = findViewById(R.id.jamPiket);
+        tvWaktu = findViewById(R.id.tv_waktu_izin_piket);
         txtNamaGuru = findViewById(R.id.txt_nama_guru);
         progressBarIzin = findViewById(R.id.progressBarIzin);
         progressBarIzin.setVisibility(View.GONE);
+        btnChooseTime = findViewById(R.id.btn_choose_time_izin_piket);
         guruList = new ArrayList<>();
     }
 
@@ -173,6 +224,8 @@ public class IzinPiketActivity extends AppCompatActivity {
         myDialog = new Dialog(IzinPiketActivity.this);
         myDialog.setContentView(R.layout.dialog_guru_izin_piket);
         myDialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+
+        pgDialogGuru = myDialog.findViewById(R.id.pg_guru_izin_piket);
     }
 
 
